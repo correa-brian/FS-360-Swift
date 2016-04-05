@@ -17,7 +17,8 @@ class ScrollController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        self.edgesForExtendedLayout = .None
         self.imageScrollView.contentSize = CGSize(width: 800, height: 200)
         self.imageScrollView.pagingEnabled = true
         self.imageScrollView.showsHorizontalScrollIndicator = false

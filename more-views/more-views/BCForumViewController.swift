@@ -10,17 +10,16 @@ import UIKit
 
 class BCForumViewController: UIViewController, UITextFieldDelegate {
     
-    var imagesArray = ["apple.png", "facebook.png", "snapchat.png", "twitter.png"]
     var commentField: UITextField!
     var comments = Array<String>()
-    var companyScroll: UIScrollView!
-    
+    var companyImageView: UIImageView!
+    var selectedImage: String!
     
     override func loadView() {
         self.edgesForExtendedLayout = .None
         let frame = UIScreen.mainScreen().bounds
         let view = UIView(frame: frame)
-        view.backgroundColor = UIColor.greenColor()
+        view.backgroundColor = UIColor.whiteColor()
         
         self.commentField = UITextField(frame: CGRect(x: 20, y:20, width: frame.size.width-40, height: 32))
         self.commentField.delegate = self
@@ -32,27 +31,27 @@ class BCForumViewController: UIViewController, UITextFieldDelegate {
         
         self.view = view
         
-        self.companyScroll = UIScrollView(frame: CGRect(x: 0, y: 270, width: 200, height: 200))
-        self.companyScroll.backgroundColor = UIColor.blueColor()
-//        let w = self.imagesArray.count * Int(self.companyScroll.frame.size.width)
-//        self.companyScroll.contentSize = CGSize(width: w, height: 0)
+        let y = self.commentField.frame.origin.y+self.commentField.frame.size.height+20
+        self.companyImageView = UIImageView(frame: CGRect(x: 60, y: y, width: 200, height: 200))
+        self.companyImageView.alpha = 0.3
         
-//        self.imageScroll.backgroundColor = UIColor.yellowColor()
-//        self.imageScroll.delegate = self
-//        
-//        let w = self.imagesArray.count * Int(self.imageScroll.frame.size.width)
-//        
-//        self.imageScroll.contentSize = CGSize(width: w, height: 0)
-//        self.imageScroll.pagingEnabled = true
-//        
-//        for image in self.imagesArray {
-//            let index = self.imagesArray.indexOf(image)
-//            let xOrigin = index!*200
-//            let imageView = UIImageView(frame: CGRect(x: xOrigin, y:0, width: 200, height: 200))
-//            imageView.image = UIImage(named: image)
-//            self.imageScroll.addSubview(imageView)
-//        }
+        if (selectedImage == "Apple"){
+            self.companyImageView.image = UIImage(named: self.selectedImage)
+        }
+
+        if (self.selectedImage == "Facebook"){
+            self.companyImageView.image = UIImage(named: self.selectedImage)
+        }
         
+        if (self.selectedImage == "Snapchat"){
+            self.companyImageView.image = UIImage(named: self.selectedImage)
+        }
+        
+        if (self.selectedImage == "Twitter"){
+            self.companyImageView.image = UIImage(named: self.selectedImage)
+        }
+        
+        view.addSubview(self.companyImageView)
     }
     
     

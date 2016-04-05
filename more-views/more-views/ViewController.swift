@@ -28,7 +28,7 @@ class ViewController: UIViewController, UIScrollViewDelegate {
         self.companyLabel.text = "Apple"
         self.view.addSubview(companyLabel)
         
-        self.imageScroll.backgroundColor = UIColor.yellowColor()
+        self.imageScroll.backgroundColor = UIColor.whiteColor()
         self.imageScroll.delegate = self
         
         let w = self.imagesArray.count * Int(self.imageScroll.frame.size.width)
@@ -67,8 +67,12 @@ class ViewController: UIViewController, UIScrollViewDelegate {
     func btnNextAction(btn: UIButton){
         print("btnNextAction")
         
-        let forumVC = BCForumViewController()
-        self.navigationController?.pushViewController(forumVC, animated: true)
+        let forumVc = BCForumViewController()
+        
+        self.navigationController?.pushViewController(forumVc, animated: true)
+        
+        forumVc.selectedImage = self.companyLabel.text
+        
     }
     
     func scrollViewWillBeginDragging(scrollView: UIScrollView){
