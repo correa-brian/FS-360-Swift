@@ -33,7 +33,7 @@ class BCForumViewController: UIViewController, UITextFieldDelegate {
         
         let y = self.commentField.frame.origin.y+self.commentField.frame.size.height+20
         self.companyImageView = UIImageView(frame: CGRect(x: 60, y: y, width: 200, height: 200))
-        self.companyImageView.alpha = 0.3
+        self.companyImageView.alpha = 0.2
         
         if (selectedImage == "Apple"){
             self.companyImageView.image = UIImage(named: self.selectedImage)
