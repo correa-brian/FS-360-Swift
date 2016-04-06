@@ -22,8 +22,10 @@ class ViewController: UIViewController, UIScrollViewDelegate {
         let frame = UIScreen.mainScreen().bounds //frame of entire device
         
         self.companyLabel = UILabel(frame: CGRect(x: 20, y: 20, width: frame.size.width-40, height: 32))
-        self.companyLabel.backgroundColor = UIColor.grayColor()
-        self.companyLabel.textColor = UIColor.whiteColor()
+        //self.companyLabel.backgroundColor = UIColor.whiteColor()
+        //self.companyLabel.textColor = UIColor.blackColor()
+        self.companyLabel.textColor = UIColor(red: 255/255, green: 255/255, blue: 255/255, alpha: 1)
+        self.companyLabel.backgroundColor = UIColor(red: 153/255, green: 153/255, blue: 153/255, alpha: 1)
         self.companyLabel.textAlignment = .Center
         self.companyLabel.text = "Apple"
         self.view.addSubview(companyLabel)
@@ -85,19 +87,24 @@ class ViewController: UIViewController, UIScrollViewDelegate {
         let offset = scrollView.contentOffset.x
         if (offset == 0){
             self.companyLabel.text = "Apple"
-            self.companyLabel.textColor = UIColor.redColor()
+            self.companyLabel.textColor = UIColor(red: 255/255, green: 255/255, blue: 255/255, alpha: 1)
+            self.companyLabel.backgroundColor = UIColor(red: 153/255, green: 153/255, blue: 153/255, alpha: 1)
         }
         if (offset == 200){
             self.companyLabel.text = "Facebook"
-            self.companyLabel.textColor = UIColor.blueColor()
+            self.companyLabel.textColor = UIColor(red: 255/255, green: 255/255, blue: 255/255, alpha: 1)
+            self.companyLabel.backgroundColor = UIColor(red: 59/255, green: 89/255, blue: 152/255, alpha: 1)
+            
         }
         if (offset == 400){
             self.companyLabel.text = "Snapchat"
-            self.companyLabel.textColor = UIColor.yellowColor()
+            self.companyLabel.textColor = UIColor(red: 255/255, green: 255/255, blue: 255/255, alpha: 1)
+            self.companyLabel.backgroundColor = UIColor(red: 255/255, green: 252/255, blue: 0/255, alpha: 1)
         }
         if (offset == 600){
             self.companyLabel.text = "Twitter"
-            self.companyLabel.textColor = UIColor.greenColor()
+            self.companyLabel.textColor = UIColor(red: 255/255, green: 255/255, blue: 255/255, alpha: 1)
+            self.companyLabel.backgroundColor = UIColor(red: 85/255, green: 172/255, blue: 238/255, alpha: 1)
         }
     }
     
