@@ -8,11 +8,21 @@
 
 import UIKit
 
-class BCForumViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class BCForumViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate {
+    
+
+    //MARK: - Properties
     
     var chatTable: UITableView!
+    var commentsArray = Array<String>()
+    
+    //MARK: - Lifecycle Methods
     
     override func loadView() {
+        self.commentsArray.append("Hey")
+        self.commentsArray.append("Hungry")
+        self.commentsArray.append("Check out my mySpace")
+        
         
         self.edgesForExtendedLayout = .None
         let frame = UIScreen.mainScreen().bounds
@@ -23,9 +33,34 @@ class BCForumViewController: UIViewController, UITableViewDelegate, UITableViewD
         
         self.chatTable.delegate = self
         self.chatTable.dataSource = self
+        
+        
+        let width = frame.size.width
+        let chatBox = UIView(frame: CGRect(x: 0, y:0, width: width, height: 64))
+        chatBox.backgroundColor = UIColor.yellowColor()
+        
+        let chatField = UITextField(frame: CGRect(x: 10, y: 10, width: width-20, height: 44))
+        chatField.delegate = self
+        chatField.borderStyle = .RoundedRect
+        chatBox.addSubview(chatField)
+        
+        self.chatTable.tableHeaderView = chatBox
+        
         view.addSubview(self.chatTable)
+     
         
         self.view = view
+    }
+    
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        
+        let comment = textField.text
+        self.commentsArray.append(comment!)
+        self.chatTable.reloadData()
+        textField.text = nil
+        
+        return true
         
     }
 
@@ -37,25 +72,26 @@ class BCForumViewController: UIViewController, UITableViewDelegate, UITableViewD
     //MARK: - DataSource Methods
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 20 //allocate 20 rows for the table view
+        return self.commentsArray.count //allocate number rows for the table view
     }
     
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        
+        let comment = self.commentsArray[indexPath.row]
+        
         let cellId = "cellId"
         
         // Resuse cell
-        
         if let cell = tableView.dequeueReusableCellWithIdentifier(cellId){
-            cell.textLabel?.text = "\(indexPath.row)"
+            cell.textLabel?.text = comment
             return cell
         }
         
         // Create new cell:
-        
         print("Create new cell")
         let cell = UITableViewCell(style: .Subtitle, reuseIdentifier: cellId)
-        cell.textLabel?.text = "\(indexPath.row)"
+        cell.textLabel?.text = comment
         return cell
     }
 
