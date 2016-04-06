@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "D6432EF13B7E702FF53FD2EADA33E10EF9E614B3",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "D6432EF13B7E702FF53FD2EADA33E10EF9E614B3" : 0,
+    "E89B79A2CA4FEDCD610D12CF1C09B2378532C8CE" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "D6F99091-5DF6-4842-BF6C-AE2C521DC5ED",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "D6432EF13B7E702FF53FD2EADA33E10EF9E614B3" : "FS-360\/",
+    "E89B79A2CA4FEDCD610D12CF1C09B2378532C8CE" : ""
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "US-presidents",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "US-presidents\/US-presidents.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/correa-brian\/FS-360-Swift.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "D6432EF13B7E702FF53FD2EADA33E10EF9E614B3"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/correa-brian\/Swift-Projects.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "E89B79A2CA4FEDCD610D12CF1C09B2378532C8CE"
+    }
+  ]
+}
