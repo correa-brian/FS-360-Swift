@@ -50,7 +50,7 @@
                                 </constraints>
                                 <state key="normal" title="Next"/>
                                 <connections>
-                                    <action selector="btnNext" destination="BYZ-38-t0r" eventType="touchUpInside" id="Bg0-f6-oxj"/>
+                                    <action selector="btnNext" destination="BYZ-38-t0r" eventType="touchUpInside" id="OgZ-96-2JJ"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Danny DeVito" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kbR-Gf-RQw">
@@ -90,24 +90,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1144" y="-349"/>
-        </scene>
-        <!--Forum View Controller-->
-        <scene sceneID="zPv-f7-G0v">
-            <objects>
-                <viewController id="bnj-ei-wLE" customClass="BCForumViewController" customModule="celebrities" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="nwb-7r-3Zb"/>
-                        <viewControllerLayoutGuide type="bottom" id="xq2-Ai-bJY"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="37P-mx-GTu">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="KH6-Zb-Scc" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1820" y="-344"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Ma8-ff-3hT">

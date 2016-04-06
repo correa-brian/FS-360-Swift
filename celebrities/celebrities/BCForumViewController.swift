@@ -56,6 +56,16 @@ class BCForumViewController: UIViewController, UITableViewDelegate, UITableViewD
         textField.resignFirstResponder()
         
         let comment = textField.text
+        if(comment?.characters.count == 0){
+            let alert = UIAlertController(title: "Uh Oh!", message: "That's not a comment :(", preferredStyle: .Alert)
+            
+            let okBtn = UIAlertAction(title: "Sure", style: .Default, handler: nil)
+            alert.addAction(okBtn)
+            
+            self.presentViewController(alert, animated: true, completion: nil)
+            return true
+        }
+        
         self.commentsArray.append(comment!)
         self.chatTable.reloadData()
         textField.text = nil
