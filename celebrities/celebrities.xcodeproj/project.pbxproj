@@ -16,6 +16,7 @@
 		D35CF3C91CB5499F001307D4 /* hernandez@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D35CF3C61CB5499F001307D4 /* hernandez@2x.png */; };
 		D35CF3CA1CB5499F001307D4 /* obama@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D35CF3C71CB5499F001307D4 /* obama@2x.png */; };
 		D35CF3CC1CB55A19001307D4 /* BCForumViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D35CF3CB1CB55A19001307D4 /* BCForumViewController.swift */; };
+		D3998D121CB69A4300D04725 /* BCCelebrity.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3998D111CB69A4300D04725 /* BCCelebrity.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		D35CF3C61CB5499F001307D4 /* hernandez@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "hernandez@2x.png"; sourceTree = "<group>"; };
 		D35CF3C71CB5499F001307D4 /* obama@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "obama@2x.png"; sourceTree = "<group>"; };
 		D35CF3CB1CB55A19001307D4 /* BCForumViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BCForumViewController.swift; sourceTree = "<group>"; };
+		D3998D111CB69A4300D04725 /* BCCelebrity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BCCelebrity.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +64,7 @@
 		D35CF3AA1CB541BF001307D4 /* celebrities */ = {
 			isa = PBXGroup;
 			children = (
+				D3998D101CB699EE00D04725 /* models */,
 				D35CF3C41CB5499F001307D4 /* celeb-photos */,
 				D35CF3AB1CB541BF001307D4 /* AppDelegate.swift */,
 				D35CF3AD1CB541BF001307D4 /* ViewController.swift */,
@@ -82,6 +85,14 @@
 				D35CF3C71CB5499F001307D4 /* obama@2x.png */,
 			);
 			path = "celeb-photos";
+			sourceTree = "<group>";
+		};
+		D3998D101CB699EE00D04725 /* models */ = {
+			isa = PBXGroup;
+			children = (
+				D3998D111CB69A4300D04725 /* BCCelebrity.swift */,
+			);
+			path = models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -159,6 +170,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D3998D121CB69A4300D04725 /* BCCelebrity.swift in Sources */,
 				D35CF3CC1CB55A19001307D4 /* BCForumViewController.swift in Sources */,
 				D35CF3AE1CB541BF001307D4 /* ViewController.swift in Sources */,
 				D35CF3AC1CB541BF001307D4 /* AppDelegate.swift in Sources */,
@@ -311,6 +323,7 @@
 				D35CF3BC1CB541BF001307D4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

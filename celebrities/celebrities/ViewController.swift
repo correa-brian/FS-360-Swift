@@ -16,8 +16,25 @@ class ViewController: UIViewController {
     @IBOutlet var selectedLabel: UILabel!
     @IBOutlet var nextBtn: UIButton!
     
+    var celebritiesDict = [String: BCCelebrity]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let dannyDeVito = BCCelebrity()
+        dannyDeVito.name = "Danny DeVito"
+        dannyDeVito.image = "devito.png"
+        self.celebritiesDict[dannyDeVito.name] = dannyDeVito
+        
+        let aaronHernandez = BCCelebrity()
+        aaronHernandez.name = "Aaron Hernandez"
+        aaronHernandez.image = "hernandez.png"
+        self.celebritiesDict[aaronHernandez.name] = aaronHernandez
+        
+        let barackObama = BCCelebrity()
+        barackObama.name = "Barack Obama"
+        barackObama.image = "obama.png"
+        self.celebritiesDict[barackObama.name] = barackObama
         
         let celebrities = [self.hernandezImage, self.obamaImage, self.devitoImage]
         
@@ -36,7 +53,7 @@ class ViewController: UIViewController {
         
         switch view!.tag {
         case 0:
-            self.selectedLabel.text = "Danny Devito"
+            self.selectedLabel.text = "Danny DeVito"
         case 1:
             self.selectedLabel.text = "Aaron Hernandez"
         case 2:
@@ -51,7 +68,9 @@ class ViewController: UIViewController {
         print("buttonTapped")
         
         let forumVc = BCForumViewController()
-        forumVc.title = self.selectedLabel.text
+        
+        let selectedCelebrity = self.celebritiesDict[self.selectedLabel.text!]
+        forumVc.selectedCelebrity = selectedCelebrity
         self.navigationController?.pushViewController(forumVc, animated: true)
     }
 

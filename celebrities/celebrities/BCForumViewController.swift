@@ -14,15 +14,20 @@ class BCForumViewController: UIViewController, UITableViewDelegate, UITableViewD
     //MARK: - Properties
     
     var chatTable: UITableView!
-    var commentsArray = Array<String>()
+    var selectedCelebrity: BCCelebrity!
+    
+    //MARK: - My Stuff
+    
+    func configureCell(cell: UITableViewCell, indexPath: NSIndexPath){
+        let comment = self.selectedCelebrity.comments[indexPath.row]
+        cell.textLabel?.text = comment
+        cell.detailTextLabel?.text = "This is some details"
+    }
     
     //MARK: - Lifecycle Methods
     
     override func loadView() {
-        self.commentsArray.append("Hey")
-        self.commentsArray.append("Hungry")
-        self.commentsArray.append("Check out my mySpace")
-        
+        self.title = self.selectedCelebrity.name
         
         self.edgesForExtendedLayout = .None
         let frame = UIScreen.mainScreen().bounds
@@ -66,7 +71,7 @@ class BCForumViewController: UIViewController, UITableViewDelegate, UITableViewD
             return true
         }
         
-        self.commentsArray.append(comment!)
+        self.selectedCelebrity.comments.append(comment!)
         self.chatTable.reloadData()
         textField.text = nil
         
@@ -79,31 +84,40 @@ class BCForumViewController: UIViewController, UITableViewDelegate, UITableViewD
         
     }
     
+    
     //MARK: - DataSource Methods
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.commentsArray.count //allocate number rows for the table view
+        return self.selectedCelebrity.comments.count //allocate number rows for the table view
     }
     
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
-        let comment = self.commentsArray[indexPath.row]
-        
         let cellId = "cellId"
         
         // Resuse cell
         if let cell = tableView.dequeueReusableCellWithIdentifier(cellId){
-            cell.textLabel?.text = comment
+            self.configureCell(cell, indexPath: indexPath)
             return cell
         }
         
         // Create new cell:
         print("Create new cell")
         let cell = UITableViewCell(style: .Subtitle, reuseIdentifier: cellId)
-        cell.textLabel?.text = comment
+        self.configureCell(cell, indexPath: indexPath)
         return cell
     }
+    
+    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+            return 88
+    }
+    
+//    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath){
+//        let comment = self.commentsArray[indexPath.row]
+//        print("didDeselectRowAtIndexPath: \(comment)")
+//    }
+    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
