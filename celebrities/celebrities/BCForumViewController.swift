@@ -8,20 +8,22 @@
 
 import UIKit
 
-class BCForumViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate {
+class BCForumViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate, UIScrollViewDelegate {
     
 
     //MARK: - Properties
     
     var chatTable: UITableView!
     var selectedCelebrity: BCCelebrity!
+    var chatField: UITextField!
     
     //MARK: - My Stuff
     
-    func configureCell(cell: UITableViewCell, indexPath: NSIndexPath){
+    func configureCell(cell: BCTableViewCell, indexPath: NSIndexPath){
         let comment = self.selectedCelebrity.comments[indexPath.row]
-        cell.textLabel?.text = comment
-        cell.detailTextLabel?.text = "This is some details"
+        cell.textLabel?.text = comment.text
+        cell.detailTextLabel?.text = comment.timestamp.description
+        cell.imageView?.image = UIImage(named: self.selectedCelebrity.image)
     }
     
     //MARK: - Lifecycle Methods
@@ -35,19 +37,19 @@ class BCForumViewController: UIViewController, UITableViewDelegate, UITableViewD
         view.backgroundColor = UIColor.redColor()
         
         self.chatTable = UITableView(frame: frame, style: .Plain)
-        
         self.chatTable.delegate = self
         self.chatTable.dataSource = self
-        
+        //UITableViewSeparatorStyle.none for the below
+        self.chatTable.separatorStyle = .None
         
         let width = frame.size.width
         let chatBox = UIView(frame: CGRect(x: 0, y:0, width: width, height: 64))
         chatBox.backgroundColor = UIColor.yellowColor()
         
-        let chatField = UITextField(frame: CGRect(x: 10, y: 10, width: width-20, height: 44))
-        chatField.delegate = self
-        chatField.borderStyle = .RoundedRect
-        chatBox.addSubview(chatField)
+        self.chatField = UITextField(frame: CGRect(x: 10, y: 10, width: width-20, height: 44))
+        self.chatField.delegate = self
+        self.chatField.borderStyle = .RoundedRect
+        chatBox.addSubview(self.chatField)
         
         self.chatTable.tableHeaderView = chatBox
         
@@ -71,19 +73,27 @@ class BCForumViewController: UIViewController, UITableViewDelegate, UITableViewD
             return true
         }
         
-        self.selectedCelebrity.comments.append(comment!)
+        let cmt = BCComment()
+        cmt.text = comment!
+        
+        self.selectedCelebrity.comments.append(cmt)
         self.chatTable.reloadData()
         textField.text = nil
         
         return true
         
     }
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
     }
     
+    func scrollViewWillBeginDragging(scrollView: UIScrollView) {
+        print("scrollViewWillBeginDragging")
+        self.chatField.resignFirstResponder()
+    }
     
     //MARK: - DataSource Methods
     
@@ -97,14 +107,14 @@ class BCForumViewController: UIViewController, UITableViewDelegate, UITableViewD
         let cellId = "cellId"
         
         // Resuse cell
-        if let cell = tableView.dequeueReusableCellWithIdentifier(cellId){
+        if let cell = tableView.dequeueReusableCellWithIdentifier(cellId) as? BCTableViewCell {
             self.configureCell(cell, indexPath: indexPath)
             return cell
         }
         
         // Create new cell:
         print("Create new cell")
-        let cell = UITableViewCell(style: .Subtitle, reuseIdentifier: cellId)
+        let cell = BCTableViewCell(style: .Subtitle, reuseIdentifier: cellId)
         self.configureCell(cell, indexPath: indexPath)
         return cell
     }

@@ -1,5 +1,5 @@
 //
-//  BCCelebrity.swift
+//  BCComment.swift
 //  celebrities
 //
 //  Created by Brian Correa on 4/7/16.
@@ -8,13 +8,9 @@
 
 import UIKit
 
-class BCCelebrity: NSObject {
-
+class BCComment: NSObject {
     
-    var name: String!
-    var image: String!
-    var comments = Array<BCComment>()
-
+    var text: String!
+    var timestamp = NSDate()
+    
 }
-
-

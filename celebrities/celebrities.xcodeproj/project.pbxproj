@@ -17,6 +17,9 @@
 		D35CF3CA1CB5499F001307D4 /* obama@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D35CF3C71CB5499F001307D4 /* obama@2x.png */; };
 		D35CF3CC1CB55A19001307D4 /* BCForumViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D35CF3CB1CB55A19001307D4 /* BCForumViewController.swift */; };
 		D3998D121CB69A4300D04725 /* BCCelebrity.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3998D111CB69A4300D04725 /* BCCelebrity.swift */; };
+		D3998D141CB6A4F000D04725 /* BCComment.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3998D131CB6A4F000D04725 /* BCComment.swift */; };
+		D3998D171CB6ACC100D04725 /* BCTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3998D161CB6ACC100D04725 /* BCTableViewCell.swift */; };
+		D3998D191CB6B1B700D04725 /* star@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D3998D181CB6B1B700D04725 /* star@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +35,9 @@
 		D35CF3C71CB5499F001307D4 /* obama@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "obama@2x.png"; sourceTree = "<group>"; };
 		D35CF3CB1CB55A19001307D4 /* BCForumViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BCForumViewController.swift; sourceTree = "<group>"; };
 		D3998D111CB69A4300D04725 /* BCCelebrity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BCCelebrity.swift; sourceTree = "<group>"; };
+		D3998D131CB6A4F000D04725 /* BCComment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BCComment.swift; sourceTree = "<group>"; };
+		D3998D161CB6ACC100D04725 /* BCTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BCTableViewCell.swift; sourceTree = "<group>"; };
+		D3998D181CB6B1B700D04725 /* star@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "star@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +70,7 @@
 		D35CF3AA1CB541BF001307D4 /* celebrities */ = {
 			isa = PBXGroup;
 			children = (
+				D3998D151CB6AC4B00D04725 /* views */,
 				D3998D101CB699EE00D04725 /* models */,
 				D35CF3C41CB5499F001307D4 /* celeb-photos */,
 				D35CF3AB1CB541BF001307D4 /* AppDelegate.swift */,
@@ -80,6 +87,7 @@
 		D35CF3C41CB5499F001307D4 /* celeb-photos */ = {
 			isa = PBXGroup;
 			children = (
+				D3998D181CB6B1B700D04725 /* star@2x.png */,
 				D35CF3C51CB5499F001307D4 /* devito@2x.png */,
 				D35CF3C61CB5499F001307D4 /* hernandez@2x.png */,
 				D35CF3C71CB5499F001307D4 /* obama@2x.png */,
@@ -91,8 +99,17 @@
 			isa = PBXGroup;
 			children = (
 				D3998D111CB69A4300D04725 /* BCCelebrity.swift */,
+				D3998D131CB6A4F000D04725 /* BCComment.swift */,
 			);
 			path = models;
+			sourceTree = "<group>";
+		};
+		D3998D151CB6AC4B00D04725 /* views */ = {
+			isa = PBXGroup;
+			children = (
+				D3998D161CB6ACC100D04725 /* BCTableViewCell.swift */,
+			);
+			path = views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -156,6 +173,7 @@
 			files = (
 				D35CF3C91CB5499F001307D4 /* hernandez@2x.png in Resources */,
 				D35CF3B61CB541BF001307D4 /* LaunchScreen.storyboard in Resources */,
+				D3998D191CB6B1B700D04725 /* star@2x.png in Resources */,
 				D35CF3C81CB5499F001307D4 /* devito@2x.png in Resources */,
 				D35CF3B31CB541BF001307D4 /* Assets.xcassets in Resources */,
 				D35CF3B11CB541BF001307D4 /* Main.storyboard in Resources */,
@@ -173,6 +191,8 @@
 				D3998D121CB69A4300D04725 /* BCCelebrity.swift in Sources */,
 				D35CF3CC1CB55A19001307D4 /* BCForumViewController.swift in Sources */,
 				D35CF3AE1CB541BF001307D4 /* ViewController.swift in Sources */,
+				D3998D141CB6A4F000D04725 /* BCComment.swift in Sources */,
+				D3998D171CB6ACC100D04725 /* BCTableViewCell.swift in Sources */,
 				D35CF3AC1CB541BF001307D4 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
