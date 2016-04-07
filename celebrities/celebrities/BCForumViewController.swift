@@ -120,15 +120,26 @@ class BCForumViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
     
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-            return 88
+        
+        let comment = self.selectedCelebrity.comments[indexPath.row]
+        let commentText = NSString(string: comment.text)
+        
+        let rect = commentText.boundingRectWithSize(CGSizeMake(tableView.frame.size.width-75, 100),
+                                         options: .UsesLineFragmentOrigin,
+                                         attributes: [NSFontAttributeName: UIFont.systemFontOfSize(14)],
+                                         context: nil)
+
+        
+          return rect.size.height+64
+//        print("Height: \(rect.size.height)")
+//        if(rect.size.height < 44){
+//            return 88
+//        }
+//        
+
     }
     
-//    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath){
-//        let comment = self.commentsArray[indexPath.row]
-//        print("didDeselectRowAtIndexPath: \(comment)")
-//    }
     
-
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         
