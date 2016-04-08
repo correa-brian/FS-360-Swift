@@ -34,6 +34,9 @@
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="onb-ur-oI3">
                                 <rect key="frame" x="277" y="443" width="46" height="30"/>
                                 <state key="normal" title="Go"/>
+                                <connections>
+                                    <action selector="showNextController" destination="BYZ-38-t0r" eventType="touchUpInside" id="X4A-u1-Q8L"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -50,6 +53,7 @@
                     <connections>
                         <outlet property="imageLabel" destination="A0R-Ey-QCh" id="p9d-4N-g2k"/>
                         <outlet property="imageScrollView" destination="pxs-Tj-Qtq" id="2Rv-oS-0YL"/>
+                        <outlet property="nxtButton" destination="onb-ur-oI3" id="X49-7V-4pv"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
