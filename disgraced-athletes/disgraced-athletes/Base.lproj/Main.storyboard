@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="3x3-7Y-Tm1">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -16,11 +16,63 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pxs-Tj-Qtq">
+                                <rect key="frame" x="200" y="103" width="200" height="200"/>
+                                <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="200" id="3U9-OC-MTg"/>
+                                    <constraint firstAttribute="height" constant="200" id="dOs-Vc-aHc"/>
+                                </constraints>
+                            </scrollView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Lance Armstrong" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A0R-Ey-QCh">
+                                <rect key="frame" x="226" y="373" width="148" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="onb-ur-oI3">
+                                <rect key="frame" x="277" y="443" width="46" height="30"/>
+                                <state key="normal" title="Go"/>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="A0R-Ey-QCh" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="25a-Is-W5b"/>
+                            <constraint firstItem="pxs-Tj-Qtq" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="6x0-A3-h4G"/>
+                            <constraint firstItem="onb-ur-oI3" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="chP-08-53k"/>
+                            <constraint firstItem="A0R-Ey-QCh" firstAttribute="top" secondItem="pxs-Tj-Qtq" secondAttribute="bottom" constant="70" id="exQ-Aj-Jcp"/>
+                            <constraint firstItem="pxs-Tj-Qtq" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="39" id="sea-NH-0zg"/>
+                            <constraint firstItem="onb-ur-oI3" firstAttribute="top" secondItem="A0R-Ey-QCh" secondAttribute="bottom" constant="49" id="xYj-Gj-Jxl"/>
+                        </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="VPD-b6-ZI4"/>
+                    <connections>
+                        <outlet property="imageLabel" destination="A0R-Ey-QCh" id="p9d-4N-g2k"/>
+                        <outlet property="imageScrollView" destination="pxs-Tj-Qtq" id="2Rv-oS-0YL"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="1114" y="997"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="A8F-Ct-pkl">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="3x3-7Y-Tm1" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="uEY-hO-79P">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="dWA-ex-Toe"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="EZv-pU-HQT" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="413" y="997"/>
         </scene>
     </scenes>
 </document>

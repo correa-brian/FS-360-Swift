@@ -12,6 +12,9 @@
 		D3998D2C1CB6F04200D04725 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D3998D2A1CB6F04200D04725 /* Main.storyboard */; };
 		D3998D2E1CB6F04200D04725 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D3998D2D1CB6F04200D04725 /* Assets.xcassets */; };
 		D3998D311CB6F04200D04725 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D3998D2F1CB6F04200D04725 /* LaunchScreen.storyboard */; };
+		D3998D3C1CB6F5EF00D04725 /* armstrong@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D3998D391CB6F5EF00D04725 /* armstrong@2x.png */; };
+		D3998D3D1CB6F5EF00D04725 /* arod@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D3998D3A1CB6F5EF00D04725 /* arod@2x.png */; };
+		D3998D3E1CB6F5EF00D04725 /* phelps@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D3998D3B1CB6F5EF00D04725 /* phelps@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +25,9 @@
 		D3998D2D1CB6F04200D04725 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D3998D301CB6F04200D04725 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D3998D321CB6F04200D04725 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D3998D391CB6F5EF00D04725 /* armstrong@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "armstrong@2x.png"; sourceTree = "<group>"; };
+		D3998D3A1CB6F5EF00D04725 /* arod@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "arod@2x.png"; sourceTree = "<group>"; };
+		D3998D3B1CB6F5EF00D04725 /* phelps@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "phelps@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +60,7 @@
 		D3998D251CB6F04200D04725 /* disgraced-athletes */ = {
 			isa = PBXGroup;
 			children = (
+				D3998D381CB6F5EF00D04725 /* DA-photos */,
 				D3998D261CB6F04200D04725 /* AppDelegate.swift */,
 				D3998D281CB6F04200D04725 /* ViewController.swift */,
 				D3998D2A1CB6F04200D04725 /* Main.storyboard */,
@@ -62,6 +69,16 @@
 				D3998D321CB6F04200D04725 /* Info.plist */,
 			);
 			path = "disgraced-athletes";
+			sourceTree = "<group>";
+		};
+		D3998D381CB6F5EF00D04725 /* DA-photos */ = {
+			isa = PBXGroup;
+			children = (
+				D3998D391CB6F5EF00D04725 /* armstrong@2x.png */,
+				D3998D3A1CB6F5EF00D04725 /* arod@2x.png */,
+				D3998D3B1CB6F5EF00D04725 /* phelps@2x.png */,
+			);
+			path = "DA-photos";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -125,6 +142,9 @@
 			files = (
 				D3998D311CB6F04200D04725 /* LaunchScreen.storyboard in Resources */,
 				D3998D2E1CB6F04200D04725 /* Assets.xcassets in Resources */,
+				D3998D3E1CB6F5EF00D04725 /* phelps@2x.png in Resources */,
+				D3998D3C1CB6F5EF00D04725 /* armstrong@2x.png in Resources */,
+				D3998D3D1CB6F5EF00D04725 /* arod@2x.png in Resources */,
 				D3998D2C1CB6F04200D04725 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
