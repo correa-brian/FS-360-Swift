@@ -8,42 +8,49 @@
 
 import UIKit
 
-class BCChatViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate {
+class BCChatViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate, UIScrollViewDelegate {
     
     //MARK: - Properties
     
+    var chatField: UITextField!
     var chatTable: UITableView!
-    var commentsArray = Array<String>()
+    var selectedAthlete: BCAthlete!
+    
+    //MARK: - My Functions
+    
+    func configureCell(cell: BCTableViewCell, indexPath: NSIndexPath){
+        
+        let comment = self.selectedAthlete.comments[indexPath.row]
+        cell.textLabel?.text = comment.text
+        cell.detailTextLabel?.text = comment.timestamp.description
+        cell.imageView?.image = UIImage(named: self.selectedAthlete.image)
+    }
     
     //MARK: Lifecycle Methods
     
     override func loadView() {
         
-        self.commentsArray.append("First Comment")
-        self.commentsArray.append("We love sports")
-        self.commentsArray.append("Can't wait for the next game")
-        self.commentsArray.append("Hall of Fame")
+        self.title = self.selectedAthlete.name
         
         self.edgesForExtendedLayout = .None
         let frame = UIScreen.mainScreen().bounds
         let view = UIView(frame: frame)
-
         view.backgroundColor = UIColor.whiteColor()
         
         self.chatTable = UITableView(frame: frame, style: .Plain)
-        
         self.chatTable.delegate = self
         self.chatTable.dataSource = self
+        self.chatTable.separatorStyle = .None
         
         
         let width = frame.size.width
         let chatBox = UIView(frame: CGRect(x: 0, y: 0, width: width, height:64))
         chatBox.backgroundColor = UIColor(red: 0.33, green: 0.67, blue: 0.93, alpha: 0.75)
         
-        let chatField = UITextField(frame: CGRect(x: 10, y: 10, width: width-20, height: 44))
-        chatField.delegate = self
-        chatField.borderStyle = .RoundedRect
-        chatBox.addSubview(chatField)
+        self.chatField = UITextField(frame: CGRect(x: 10, y: 10, width: width-20, height: 44))
+        self.chatField.delegate = self
+        self.chatField.borderStyle = .RoundedRect
+        chatBox.addSubview(self.chatField)
         
         self.chatTable.tableHeaderView = chatBox
         
@@ -55,13 +62,39 @@ class BCChatViewController: UIViewController, UITableViewDelegate, UITableViewDa
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    
+    // MARK: - DataSource Methods
+    
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
+        //return 20
+        return self.selectedAthlete.comments.count
     }
+    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        
+        let cellId = "cellId"
+        
+        //display position cell.textLabel?.text = "\(indexPath.row)"
+        
+        //Reuse Cell
+        
+        if let cell = tableView.dequeueReusableCellWithIdentifier(cellId) as? BCTableViewCell {
+            self.configureCell(cell, indexPath: indexPath)
+            return cell
+        }
+        
+        //Create New Cell
+        print("Create new cell: \(indexPath.row)")
+        
+        let cell = BCTableViewCell(style: .Subtitle, reuseIdentifier: cellId)
+        self.configureCell(cell, indexPath: indexPath)
+        return cell
+        
+    }
+
     
     //MARK: - Delegate Methods
     
@@ -81,51 +114,44 @@ class BCChatViewController: UIViewController, UITableViewDelegate, UITableViewDa
             return true
         }
         
-        self.commentsArray.append(comment!)
+        let cmt = BCComment()
+        cmt.text = comment!
+        
+        self.selectedAthlete.comments.append(cmt)
         self.chatTable.reloadData()
+        textField.text = nil
         
         return true
     }
     
-    // MARK: - DataSource Methods
-    
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    
-        //return 20
-        return self.commentsArray.count
+    func scrollViewWillBeginDragging(scrollView: UIScrollView) {
+        print("scrollViewWillBeginDragging")
+        self.chatField.resignFirstResponder()
     }
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         
-        let comment = self.commentsArray[indexPath.row]
-        let cellId = "cellId"
+        let comment = self.selectedAthlete.comments[indexPath.row]
+        let commentText = NSString(string: comment.text)
         
-        //display position cell.textLabel?.text = "\(indexPath.row)"
+        let rect = commentText.boundingRectWithSize(CGSizeMake(tableView.frame.size.width-100, 100),
+                                                    options: .UsesLineFragmentOrigin,
+                                                    attributes: [NSFontAttributeName: UIFont.systemFontOfSize(14)],
+                                                    context: nil)
+
         
-        //Reuse Cell
+        print("Height: \(rect.size.height)")
         
-        if let cell = tableView.dequeueReusableCellWithIdentifier(cellId){
-            cell.textLabel?.text = comment
-            return cell
+        if(rect.size.height < 44){
+            return 100
         }
         
-        //Create New Cell
-        print("Create new cell: \(indexPath.row)")
-        
-        let cell = UITableViewCell(style: .Subtitle, reuseIdentifier: cellId)
-        cell.textLabel?.text = comment
-        return cell
-        
+        return rect.size.height+100
     }
     
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        
     }
-    */
 
 }

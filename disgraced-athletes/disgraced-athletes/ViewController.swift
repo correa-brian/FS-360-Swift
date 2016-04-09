@@ -10,19 +10,22 @@ import UIKit
 
 class ViewController: UIViewController, UIScrollViewDelegate {
     
-    //MARK: - My Stuff
+    //MARK: - Properties
     
     @IBOutlet var imageScrollView: UIScrollView!
     @IBOutlet var imageLabel: UILabel!
     @IBOutlet var nxtButton: UIButton!
+    var athletesDict = [String: BCAthlete]()
+    
+    //MARK: - My Functions
     
     @IBAction func showNextController() {
         print("showNextController")
         
         let chatVc = BCChatViewController()
         
-        chatVc.title = self.imageLabel.text
-        
+        let selectedAthlete = self.athletesDict[self.imageLabel.text!]
+        chatVc.selectedAthlete = selectedAthlete
         self.navigationController?.pushViewController(chatVc, animated: true)
         
     }
@@ -33,6 +36,21 @@ class ViewController: UIViewController, UIScrollViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let lanceArmstrong = BCAthlete()
+        lanceArmstrong.name = "Lance DopeStrong"
+        lanceArmstrong.image = "armstrong.png"
+        self.athletesDict[lanceArmstrong.name] = lanceArmstrong
+        
+        let alexRodriguez = BCAthlete()
+        alexRodriguez.name = "Alex Roidriguez"
+        alexRodriguez.image = "arod.png"
+        self.athletesDict[alexRodriguez.name] = alexRodriguez
+        
+        let michaelPhelps = BCAthlete()
+        michaelPhelps.name = "Michael Bong-Phelps"
+        michaelPhelps.image = "phelps.png"
+        self.athletesDict[michaelPhelps.name] = michaelPhelps
         
         self.edgesForExtendedLayout = .None
         let frame = UIScreen.mainScreen().bounds
@@ -85,6 +103,7 @@ class ViewController: UIViewController, UIScrollViewDelegate {
         }
         if (offset == 200){
             self.imageLabel.text = "Alex Roidriguez"
+            
         }
         if (offset == 400){
             self.imageLabel.text = "Michael Bong-Phelps"

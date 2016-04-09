@@ -16,6 +16,10 @@
 		D3998D3D1CB6F5EF00D04725 /* arod@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D3998D3A1CB6F5EF00D04725 /* arod@2x.png */; };
 		D3998D3E1CB6F5EF00D04725 /* phelps@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D3998D3B1CB6F5EF00D04725 /* phelps@2x.png */; };
 		D3998D401CB81BEA00D04725 /* BCChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3998D3F1CB81BEA00D04725 /* BCChatViewController.swift */; };
+		D3998D431CB8497700D04725 /* BCAthlete.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3998D421CB8497700D04725 /* BCAthlete.swift */; };
+		D3998D451CB84F1800D04725 /* BCComment.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3998D441CB84F1800D04725 /* BCComment.swift */; };
+		D3998D481CB84F9A00D04725 /* BCTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3998D471CB84F9A00D04725 /* BCTableViewCell.swift */; };
+		D3998D4A1CB85ECD00D04725 /* star@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D3998D491CB85ECD00D04725 /* star@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +34,10 @@
 		D3998D3A1CB6F5EF00D04725 /* arod@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "arod@2x.png"; sourceTree = "<group>"; };
 		D3998D3B1CB6F5EF00D04725 /* phelps@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "phelps@2x.png"; sourceTree = "<group>"; };
 		D3998D3F1CB81BEA00D04725 /* BCChatViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BCChatViewController.swift; sourceTree = "<group>"; };
+		D3998D421CB8497700D04725 /* BCAthlete.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BCAthlete.swift; sourceTree = "<group>"; };
+		D3998D441CB84F1800D04725 /* BCComment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BCComment.swift; sourceTree = "<group>"; };
+		D3998D471CB84F9A00D04725 /* BCTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BCTableViewCell.swift; sourceTree = "<group>"; };
+		D3998D491CB85ECD00D04725 /* star@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "star@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +70,8 @@
 		D3998D251CB6F04200D04725 /* disgraced-athletes */ = {
 			isa = PBXGroup;
 			children = (
+				D3998D461CB84F7E00D04725 /* views */,
+				D3998D411CB848C400D04725 /* models */,
 				D3998D381CB6F5EF00D04725 /* DA-photos */,
 				D3998D261CB6F04200D04725 /* AppDelegate.swift */,
 				D3998D281CB6F04200D04725 /* ViewController.swift */,
@@ -77,11 +87,29 @@
 		D3998D381CB6F5EF00D04725 /* DA-photos */ = {
 			isa = PBXGroup;
 			children = (
+				D3998D491CB85ECD00D04725 /* star@2x.png */,
 				D3998D391CB6F5EF00D04725 /* armstrong@2x.png */,
 				D3998D3A1CB6F5EF00D04725 /* arod@2x.png */,
 				D3998D3B1CB6F5EF00D04725 /* phelps@2x.png */,
 			);
 			path = "DA-photos";
+			sourceTree = "<group>";
+		};
+		D3998D411CB848C400D04725 /* models */ = {
+			isa = PBXGroup;
+			children = (
+				D3998D421CB8497700D04725 /* BCAthlete.swift */,
+				D3998D441CB84F1800D04725 /* BCComment.swift */,
+			);
+			path = models;
+			sourceTree = "<group>";
+		};
+		D3998D461CB84F7E00D04725 /* views */ = {
+			isa = PBXGroup;
+			children = (
+				D3998D471CB84F9A00D04725 /* BCTableViewCell.swift */,
+			);
+			path = views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -145,6 +173,7 @@
 			files = (
 				D3998D311CB6F04200D04725 /* LaunchScreen.storyboard in Resources */,
 				D3998D2E1CB6F04200D04725 /* Assets.xcassets in Resources */,
+				D3998D4A1CB85ECD00D04725 /* star@2x.png in Resources */,
 				D3998D3E1CB6F5EF00D04725 /* phelps@2x.png in Resources */,
 				D3998D3C1CB6F5EF00D04725 /* armstrong@2x.png in Resources */,
 				D3998D3D1CB6F5EF00D04725 /* arod@2x.png in Resources */,
@@ -161,6 +190,9 @@
 			files = (
 				D3998D291CB6F04200D04725 /* ViewController.swift in Sources */,
 				D3998D401CB81BEA00D04725 /* BCChatViewController.swift in Sources */,
+				D3998D431CB8497700D04725 /* BCAthlete.swift in Sources */,
+				D3998D451CB84F1800D04725 /* BCComment.swift in Sources */,
+				D3998D481CB84F9A00D04725 /* BCTableViewCell.swift in Sources */,
 				D3998D271CB6F04200D04725 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
