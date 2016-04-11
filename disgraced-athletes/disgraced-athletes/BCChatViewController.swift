@@ -134,7 +134,7 @@ class BCChatViewController: UIViewController, UITableViewDelegate, UITableViewDa
         let comment = self.selectedAthlete.comments[indexPath.row]
         let commentText = NSString(string: comment.text)
         
-        let rect = commentText.boundingRectWithSize(CGSizeMake(tableView.frame.size.width-100, 100),
+        let rect = commentText.boundingRectWithSize(CGSizeMake(tableView.frame.size.width-200, 150),
                                                     options: .UsesLineFragmentOrigin,
                                                     attributes: [NSFontAttributeName: UIFont.systemFontOfSize(14)],
                                                     context: nil)
@@ -146,7 +146,7 @@ class BCChatViewController: UIViewController, UITableViewDelegate, UITableViewDa
             return 100
         }
         
-        return rect.size.height+100
+        return rect.size.height+50
     }
     
     override func didReceiveMemoryWarning() {

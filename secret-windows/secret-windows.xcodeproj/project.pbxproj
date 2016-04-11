@@ -1,0 +1,414 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		D32EE3F81CBAB681006BAEC2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D32EE3F71CBAB681006BAEC2 /* AppDelegate.swift */; };
+		D32EE3FA1CBAB681006BAEC2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D32EE3F91CBAB681006BAEC2 /* ViewController.swift */; };
+		D32EE3FD1CBAB681006BAEC2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D32EE3FB1CBAB681006BAEC2 /* Main.storyboard */; };
+		D32EE3FF1CBAB681006BAEC2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D32EE3FE1CBAB681006BAEC2 /* Assets.xcassets */; };
+		D32EE4021CBAB681006BAEC2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D32EE4001CBAB681006BAEC2 /* LaunchScreen.storyboard */; };
+		D32EE40A1CBAE300006BAEC2 /* BCChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D32EE4091CBAE2FF006BAEC2 /* BCChatViewController.swift */; };
+		D32EE4221CBB1A9F006BAEC2 /* devito@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D32EE40D1CBB1A9F006BAEC2 /* devito@2x.png */; };
+		D32EE4231CBB1A9F006BAEC2 /* hernandez@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D32EE40E1CBB1A9F006BAEC2 /* hernandez@2x.png */; };
+		D32EE4241CBB1A9F006BAEC2 /* obama@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D32EE40F1CBB1A9F006BAEC2 /* obama@2x.png */; };
+		D32EE4251CBB1A9F006BAEC2 /* armstrong@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D32EE4111CBB1A9F006BAEC2 /* armstrong@2x.png */; };
+		D32EE4261CBB1A9F006BAEC2 /* arod@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D32EE4121CBB1A9F006BAEC2 /* arod@2x.png */; };
+		D32EE4271CBB1A9F006BAEC2 /* phelps@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D32EE4131CBB1A9F006BAEC2 /* phelps@2x.png */; };
+		D32EE4281CBB1A9F006BAEC2 /* apple@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D32EE4151CBB1A9F006BAEC2 /* apple@2x.png */; };
+		D32EE4291CBB1A9F006BAEC2 /* facebook@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D32EE4161CBB1A9F006BAEC2 /* facebook@2x.png */; };
+		D32EE42A1CBB1A9F006BAEC2 /* snapchat@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D32EE4171CBB1A9F006BAEC2 /* snapchat@2x.png */; };
+		D32EE42B1CBB1A9F006BAEC2 /* twitter@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D32EE4181CBB1A9F006BAEC2 /* twitter@2x.png */; };
+		D32EE42C1CBB1A9F006BAEC2 /* bush@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D32EE41A1CBB1A9F006BAEC2 /* bush@2x.png */; };
+		D32EE42D1CBB1A9F006BAEC2 /* clinton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D32EE41B1CBB1A9F006BAEC2 /* clinton@2x.png */; };
+		D32EE42E1CBB1A9F006BAEC2 /* obama@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D32EE41C1CBB1A9F006BAEC2 /* obama@2x.png */; };
+		D32EE42F1CBB1A9F006BAEC2 /* giants@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D32EE41E1CBB1A9F006BAEC2 /* giants@2x.png */; };
+		D32EE4301CBB1A9F006BAEC2 /* mets@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D32EE41F1CBB1A9F006BAEC2 /* mets@2x.png */; };
+		D32EE4311CBB1A9F006BAEC2 /* yankees@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D32EE4201CBB1A9F006BAEC2 /* yankees@2x.png */; };
+		D32EE4321CBB1A9F006BAEC2 /* star@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D32EE4211CBB1A9F006BAEC2 /* star@2x.png */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		D32EE3F41CBAB681006BAEC2 /* secret-windows.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "secret-windows.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D32EE3F71CBAB681006BAEC2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		D32EE3F91CBAB681006BAEC2 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		D32EE3FC1CBAB681006BAEC2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		D32EE3FE1CBAB681006BAEC2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		D32EE4011CBAB681006BAEC2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		D32EE4031CBAB681006BAEC2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D32EE4091CBAE2FF006BAEC2 /* BCChatViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BCChatViewController.swift; sourceTree = "<group>"; };
+		D32EE40D1CBB1A9F006BAEC2 /* devito@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "devito@2x.png"; sourceTree = "<group>"; };
+		D32EE40E1CBB1A9F006BAEC2 /* hernandez@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "hernandez@2x.png"; sourceTree = "<group>"; };
+		D32EE40F1CBB1A9F006BAEC2 /* obama@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "obama@2x.png"; sourceTree = "<group>"; };
+		D32EE4111CBB1A9F006BAEC2 /* armstrong@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "armstrong@2x.png"; sourceTree = "<group>"; };
+		D32EE4121CBB1A9F006BAEC2 /* arod@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "arod@2x.png"; sourceTree = "<group>"; };
+		D32EE4131CBB1A9F006BAEC2 /* phelps@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "phelps@2x.png"; sourceTree = "<group>"; };
+		D32EE4151CBB1A9F006BAEC2 /* apple@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "apple@2x.png"; sourceTree = "<group>"; };
+		D32EE4161CBB1A9F006BAEC2 /* facebook@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "facebook@2x.png"; sourceTree = "<group>"; };
+		D32EE4171CBB1A9F006BAEC2 /* snapchat@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "snapchat@2x.png"; sourceTree = "<group>"; };
+		D32EE4181CBB1A9F006BAEC2 /* twitter@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "twitter@2x.png"; sourceTree = "<group>"; };
+		D32EE41A1CBB1A9F006BAEC2 /* bush@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bush@2x.png"; sourceTree = "<group>"; };
+		D32EE41B1CBB1A9F006BAEC2 /* clinton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "clinton@2x.png"; sourceTree = "<group>"; };
+		D32EE41C1CBB1A9F006BAEC2 /* obama@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "obama@2x.png"; sourceTree = "<group>"; };
+		D32EE41E1CBB1A9F006BAEC2 /* giants@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "giants@2x.png"; sourceTree = "<group>"; };
+		D32EE41F1CBB1A9F006BAEC2 /* mets@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "mets@2x.png"; sourceTree = "<group>"; };
+		D32EE4201CBB1A9F006BAEC2 /* yankees@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "yankees@2x.png"; sourceTree = "<group>"; };
+		D32EE4211CBB1A9F006BAEC2 /* star@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "star@2x.png"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		D32EE3F11CBAB681006BAEC2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		D32EE3EB1CBAB680006BAEC2 = {
+			isa = PBXGroup;
+			children = (
+				D32EE3F61CBAB681006BAEC2 /* secret-windows */,
+				D32EE3F51CBAB681006BAEC2 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		D32EE3F51CBAB681006BAEC2 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D32EE3F41CBAB681006BAEC2 /* secret-windows.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		D32EE3F61CBAB681006BAEC2 /* secret-windows */ = {
+			isa = PBXGroup;
+			children = (
+				D32EE40B1CBB1A9F006BAEC2 /* images */,
+				D32EE3F71CBAB681006BAEC2 /* AppDelegate.swift */,
+				D32EE3F91CBAB681006BAEC2 /* ViewController.swift */,
+				D32EE4091CBAE2FF006BAEC2 /* BCChatViewController.swift */,
+				D32EE3FB1CBAB681006BAEC2 /* Main.storyboard */,
+				D32EE3FE1CBAB681006BAEC2 /* Assets.xcassets */,
+				D32EE4001CBAB681006BAEC2 /* LaunchScreen.storyboard */,
+				D32EE4031CBAB681006BAEC2 /* Info.plist */,
+			);
+			path = "secret-windows";
+			sourceTree = "<group>";
+		};
+		D32EE40B1CBB1A9F006BAEC2 /* images */ = {
+			isa = PBXGroup;
+			children = (
+				D32EE40C1CBB1A9F006BAEC2 /* celeb-photos */,
+				D32EE4101CBB1A9F006BAEC2 /* DA-photos */,
+				D32EE4141CBB1A9F006BAEC2 /* logos */,
+				D32EE4191CBB1A9F006BAEC2 /* presidents */,
+				D32EE41D1CBB1A9F006BAEC2 /* Sports */,
+				D32EE4211CBB1A9F006BAEC2 /* star@2x.png */,
+			);
+			path = images;
+			sourceTree = "<group>";
+		};
+		D32EE40C1CBB1A9F006BAEC2 /* celeb-photos */ = {
+			isa = PBXGroup;
+			children = (
+				D32EE40D1CBB1A9F006BAEC2 /* devito@2x.png */,
+				D32EE40E1CBB1A9F006BAEC2 /* hernandez@2x.png */,
+				D32EE40F1CBB1A9F006BAEC2 /* obama@2x.png */,
+			);
+			path = "celeb-photos";
+			sourceTree = "<group>";
+		};
+		D32EE4101CBB1A9F006BAEC2 /* DA-photos */ = {
+			isa = PBXGroup;
+			children = (
+				D32EE4111CBB1A9F006BAEC2 /* armstrong@2x.png */,
+				D32EE4121CBB1A9F006BAEC2 /* arod@2x.png */,
+				D32EE4131CBB1A9F006BAEC2 /* phelps@2x.png */,
+			);
+			path = "DA-photos";
+			sourceTree = "<group>";
+		};
+		D32EE4141CBB1A9F006BAEC2 /* logos */ = {
+			isa = PBXGroup;
+			children = (
+				D32EE4151CBB1A9F006BAEC2 /* apple@2x.png */,
+				D32EE4161CBB1A9F006BAEC2 /* facebook@2x.png */,
+				D32EE4171CBB1A9F006BAEC2 /* snapchat@2x.png */,
+				D32EE4181CBB1A9F006BAEC2 /* twitter@2x.png */,
+			);
+			path = logos;
+			sourceTree = "<group>";
+		};
+		D32EE4191CBB1A9F006BAEC2 /* presidents */ = {
+			isa = PBXGroup;
+			children = (
+				D32EE41A1CBB1A9F006BAEC2 /* bush@2x.png */,
+				D32EE41B1CBB1A9F006BAEC2 /* clinton@2x.png */,
+				D32EE41C1CBB1A9F006BAEC2 /* obama@2x.png */,
+			);
+			path = presidents;
+			sourceTree = "<group>";
+		};
+		D32EE41D1CBB1A9F006BAEC2 /* Sports */ = {
+			isa = PBXGroup;
+			children = (
+				D32EE41E1CBB1A9F006BAEC2 /* giants@2x.png */,
+				D32EE41F1CBB1A9F006BAEC2 /* mets@2x.png */,
+				D32EE4201CBB1A9F006BAEC2 /* yankees@2x.png */,
+			);
+			path = Sports;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		D32EE3F31CBAB681006BAEC2 /* secret-windows */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D32EE4061CBAB681006BAEC2 /* Build configuration list for PBXNativeTarget "secret-windows" */;
+			buildPhases = (
+				D32EE3F01CBAB681006BAEC2 /* Sources */,
+				D32EE3F11CBAB681006BAEC2 /* Frameworks */,
+				D32EE3F21CBAB681006BAEC2 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "secret-windows";
+			productName = "secret-windows";
+			productReference = D32EE3F41CBAB681006BAEC2 /* secret-windows.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D32EE3EC1CBAB680006BAEC2 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0730;
+				LastUpgradeCheck = 0730;
+				ORGANIZATIONNAME = "milkshake-systems";
+				TargetAttributes = {
+					D32EE3F31CBAB681006BAEC2 = {
+						CreatedOnToolsVersion = 7.3;
+						DevelopmentTeam = 98626S38U9;
+					};
+				};
+			};
+			buildConfigurationList = D32EE3EF1CBAB680006BAEC2 /* Build configuration list for PBXProject "secret-windows" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = D32EE3EB1CBAB680006BAEC2;
+			productRefGroup = D32EE3F51CBAB681006BAEC2 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				D32EE3F31CBAB681006BAEC2 /* secret-windows */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		D32EE3F21CBAB681006BAEC2 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D32EE4231CBB1A9F006BAEC2 /* hernandez@2x.png in Resources */,
+				D32EE4281CBB1A9F006BAEC2 /* apple@2x.png in Resources */,
+				D32EE4021CBAB681006BAEC2 /* LaunchScreen.storyboard in Resources */,
+				D32EE4311CBB1A9F006BAEC2 /* yankees@2x.png in Resources */,
+				D32EE4221CBB1A9F006BAEC2 /* devito@2x.png in Resources */,
+				D32EE3FF1CBAB681006BAEC2 /* Assets.xcassets in Resources */,
+				D32EE4321CBB1A9F006BAEC2 /* star@2x.png in Resources */,
+				D32EE42B1CBB1A9F006BAEC2 /* twitter@2x.png in Resources */,
+				D32EE4291CBB1A9F006BAEC2 /* facebook@2x.png in Resources */,
+				D32EE42A1CBB1A9F006BAEC2 /* snapchat@2x.png in Resources */,
+				D32EE3FD1CBAB681006BAEC2 /* Main.storyboard in Resources */,
+				D32EE4301CBB1A9F006BAEC2 /* mets@2x.png in Resources */,
+				D32EE42F1CBB1A9F006BAEC2 /* giants@2x.png in Resources */,
+				D32EE42E1CBB1A9F006BAEC2 /* obama@2x.png in Resources */,
+				D32EE4271CBB1A9F006BAEC2 /* phelps@2x.png in Resources */,
+				D32EE42C1CBB1A9F006BAEC2 /* bush@2x.png in Resources */,
+				D32EE4241CBB1A9F006BAEC2 /* obama@2x.png in Resources */,
+				D32EE42D1CBB1A9F006BAEC2 /* clinton@2x.png in Resources */,
+				D32EE4261CBB1A9F006BAEC2 /* arod@2x.png in Resources */,
+				D32EE4251CBB1A9F006BAEC2 /* armstrong@2x.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		D32EE3F01CBAB681006BAEC2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D32EE3FA1CBAB681006BAEC2 /* ViewController.swift in Sources */,
+				D32EE40A1CBAE300006BAEC2 /* BCChatViewController.swift in Sources */,
+				D32EE3F81CBAB681006BAEC2 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		D32EE3FB1CBAB681006BAEC2 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D32EE3FC1CBAB681006BAEC2 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		D32EE4001CBAB681006BAEC2 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D32EE4011CBAB681006BAEC2 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		D32EE4041CBAB681006BAEC2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		D32EE4051CBAB681006BAEC2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		D32EE4071CBAB681006BAEC2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = "secret-windows/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.milkshakesystems.secret-windows";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		D32EE4081CBAB681006BAEC2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = "secret-windows/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.milkshakesystems.secret-windows";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		D32EE3EF1CBAB680006BAEC2 /* Build configuration list for PBXProject "secret-windows" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D32EE4041CBAB681006BAEC2 /* Debug */,
+				D32EE4051CBAB681006BAEC2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D32EE4061CBAB681006BAEC2 /* Build configuration list for PBXNativeTarget "secret-windows" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D32EE4071CBAB681006BAEC2 /* Debug */,
+				D32EE4081CBAB681006BAEC2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D32EE3EC1CBAB680006BAEC2 /* Project object */;
+}

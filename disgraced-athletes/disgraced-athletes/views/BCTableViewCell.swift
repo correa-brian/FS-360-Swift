@@ -27,7 +27,7 @@ class BCTableViewCell: UITableViewCell {
         self.selectionStyle = .None
         
         self.textLabel?.textColor = UIColor.blueColor()
-        self.imageView?.layer.cornerRadius = 100
+        self.imageView?.layer.cornerRadius = 50
         self.imageView?.layer.masksToBounds = true
         
         for var i in 0..<3 {
