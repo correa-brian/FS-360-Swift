@@ -20,10 +20,17 @@ class BCChatViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     func configureCell(cell: BCTableViewCell, indexPath: NSIndexPath){
         
-        let comment = self.selectedAthlete.comments[indexPath.row]
-        cell.textLabel?.text = comment.text
-        cell.detailTextLabel?.text = comment.timestamp.description
-        cell.imageView?.image = UIImage(named: self.selectedAthlete.image)
+        let commentText = self.selectedAthlete.comments[indexPath.row]
+        let rect = commentText.text.boundingRectWithSize(CGSizeMake(self.chatTable.frame.size.width-100, 150),
+                                                    options: .UsesLineFragmentOrigin,
+                                                    attributes: [NSFontAttributeName: UIFont.systemFontOfSize(14)],
+                                                    context: nil)
+        
+        cell.resizeCell(rect.size.height)
+        cell.commentText.text = commentText.text
+        cell.timeStamplabel.text = commentText.timestamp.description
+        cell.icon.image = UIImage(named: self.selectedAthlete.image)
+        
     }
     
     //MARK: Lifecycle Methods
@@ -90,7 +97,7 @@ class BCChatViewController: UIViewController, UITableViewDelegate, UITableViewDa
         print("Create new cell: \(indexPath.row)")
         
         let cell = BCTableViewCell(style: .Subtitle, reuseIdentifier: cellId)
-        self.configureCell(cell, indexPath: indexPath)
+          self.configureCell(cell, indexPath: indexPath)
         return cell
         
     }
@@ -134,19 +141,21 @@ class BCChatViewController: UIViewController, UITableViewDelegate, UITableViewDa
         let comment = self.selectedAthlete.comments[indexPath.row]
         let commentText = NSString(string: comment.text)
         
-        let rect = commentText.boundingRectWithSize(CGSizeMake(tableView.frame.size.width-200, 150),
+        let rect = commentText.boundingRectWithSize(CGSizeMake(tableView.frame.size.width-100, 150),
                                                     options: .UsesLineFragmentOrigin,
                                                     attributes: [NSFontAttributeName: UIFont.systemFontOfSize(14)],
                                                     context: nil)
-
         
+        // TODO: resize the commentText ourself
+        
+
         print("Height: \(rect.size.height)")
         
         if(rect.size.height < 44){
             return 100
         }
         
-        return rect.size.height+50
+        return rect.size.height+80
     }
     
     override func didReceiveMemoryWarning() {
