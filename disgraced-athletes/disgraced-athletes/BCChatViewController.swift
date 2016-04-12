@@ -71,7 +71,6 @@ class BCChatViewController: UIViewController, UITableViewDelegate, UITableViewDa
 
     }
 
-    
     // MARK: - DataSource Methods
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -102,7 +101,6 @@ class BCChatViewController: UIViewController, UITableViewDelegate, UITableViewDa
         
     }
 
-    
     //MARK: - Delegate Methods
     
     func textFieldShouldReturn(textField: UITextField) -> Bool {
@@ -147,7 +145,6 @@ class BCChatViewController: UIViewController, UITableViewDelegate, UITableViewDa
                                                     context: nil)
         
         // TODO: resize the commentText ourself
-        
 
         print("Height: \(rect.size.height)")
         

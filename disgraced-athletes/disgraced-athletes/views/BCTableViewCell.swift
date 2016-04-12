@@ -53,8 +53,6 @@ class BCTableViewCell: UITableViewCell {
         self.contentView.addSubview(self.commentText)
 //        self.contentView.backgroundColor = UIColor.lightGrayColor()
         
-
-        
         self.selectionStyle = .None
         
         self.icon = UIImageView(frame: CGRect(x: 20, y: 20, width: 100, height: 100))
@@ -69,7 +67,6 @@ class BCTableViewCell: UITableViewCell {
             self.contentView.addSubview(starIcon)
         }
     }
-    
     
     override func awakeFromNib() {
         super.awakeFromNib()
