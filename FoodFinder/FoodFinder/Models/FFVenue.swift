@@ -23,6 +23,10 @@ class FFVenue: NSObject {
             self.address = a
         }
         
+        if let location = info["location"] as? Dictionary<String, AnyObject> {
+            print("LOCATIONL \(location)")
+        }
+        
         if let r = info["rating"] as? Float {
             self.rating = r
         }
