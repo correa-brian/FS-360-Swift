@@ -110,7 +110,6 @@ class FFFoursquareVenuesViewController: FFViewController, UITableViewDelegate, U
                         self.venueTable.reloadData()
                     }
 
-
                 }
             }
         }
@@ -138,13 +137,37 @@ class FFFoursquareVenuesViewController: FFViewController, UITableViewDelegate, U
         return self.configureCell(cell, indexPath: indexPath)
         
     }
+
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath){
+        
+        let venue = self.venuesArray[indexPath.row]
+        print("\(venue.name), \(venue.lng), \(venue.lat)")
+        
+        let mapVc = FFMapViewController()
+        mapVc.venue = venue
+        mapVc.allVenues = self.venuesArray
+        self.navigationController?.pushViewController(mapVc, animated: true)
+    }
+    
+    //MARK: - Configure Cell
     
     func configureCell(cell: UITableViewCell, indexPath:NSIndexPath) -> UITableViewCell {
         let venue = self.venuesArray[indexPath.row]
         
         //changed from venue["name] as? String
         cell.textLabel?.text = venue.name
-        cell.detailTextLabel?.text = venue.address
+        
+        var details = venue.address
+        
+        if(venue.address.characters.count > 0 && venue.phone.characters.count > 0){
+            details = "\(venue.address), \(venue.phone)"
+        }
+        else {
+            details = "\(venue.address)\(venue.phone)"
+        }
+        
+        cell.detailTextLabel?.text = details
+    
         return cell
     }
     

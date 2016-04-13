@@ -7,12 +7,33 @@
 //
 
 import UIKit
+import MapKit
 
-class FFVenue: NSObject {
+class FFVenue: NSObject, MKAnnotation {
+    
+    //MARK: Properties
     
     var name: String!
-    var address: String!
-    var rating: Float!
+    var address = ""
+    var rating: Double!
+    var phone = ""
+    var lng: Double!
+    var lat: Double!
+    
+    //MARK: - Required protocol methods for MK Annotation
+    var title: String? { //gets displayed on the pin
+        return self.name
+    }
+    
+    var subtitle: String? { //gets displayed on the pin
+        return self.address
+    }
+    
+    var coordinate: CLLocationCoordinate2D {
+        return CLLocationCoordinate2DMake(self.lat, self.lng)
+    }
+    
+    //MARK: - Parsing Function
     
     func populate(info: Dictionary<String, AnyObject>){
         if let n = info["name"] as? String {
@@ -24,10 +45,28 @@ class FFVenue: NSObject {
         }
         
         if let location = info["location"] as? Dictionary<String, AnyObject> {
-            print("LOCATIONL \(location)")
+//            print("LOCATION: \(location)")
+            
+            if let addr = location["address"] as? String {
+                self.address = addr
+            }
+            if let lng = location["lng"] as? Double {
+                self.lng = lng
+            }
+            if let lat = location["lat"] as? Double {
+                self.lat = lat
+            }
         }
         
-        if let r = info["rating"] as? Float {
+        if let contact = info["contact"] as? Dictionary<String, AnyObject> {
+//            print("CONTACT: \(contact)")
+            if let formattedPhone = contact["formattedPhone"] as? String {
+//                print("PHONE: \(phone)")
+                self.phone = formattedPhone
+            }
+        }
+        
+        if let r = info["rating"] as? Double {
             self.rating = r
         }
         

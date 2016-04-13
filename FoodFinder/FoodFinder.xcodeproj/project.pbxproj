@@ -11,6 +11,7 @@
 		D36840A41CBD55F600A41CBE /* FFVenue.swift in Sources */ = {isa = PBXBuildFile; fileRef = D36840A31CBD55F600A41CBE /* FFVenue.swift */; };
 		D36840A61CBD5B3B00A41CBE /* FFVenuesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D36840A51CBD5B3B00A41CBE /* FFVenuesViewController.swift */; };
 		D36840A81CBD60BB00A41CBE /* FFFoursquareVenuesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D36840A71CBD60BB00A41CBE /* FFFoursquareVenuesViewController.swift */; };
+		D3C375911CBE990300420ED1 /* FFMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3C375901CBE990300420ED1 /* FFMapViewController.swift */; };
 		D3F135E31CBD2A0700ED57E3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3F135E21CBD2A0700ED57E3 /* AppDelegate.swift */; };
 		D3F135EA1CBD2A0700ED57E3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D3F135E91CBD2A0700ED57E3 /* Assets.xcassets */; };
 		D3F135F61CBD2AB500ED57E3 /* FFViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3F135F51CBD2AB500ED57E3 /* FFViewController.swift */; };
@@ -23,6 +24,7 @@
 		D36840A31CBD55F600A41CBE /* FFVenue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FFVenue.swift; sourceTree = "<group>"; };
 		D36840A51CBD5B3B00A41CBE /* FFVenuesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FFVenuesViewController.swift; sourceTree = "<group>"; };
 		D36840A71CBD60BB00A41CBE /* FFFoursquareVenuesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FFFoursquareVenuesViewController.swift; sourceTree = "<group>"; };
+		D3C375901CBE990300420ED1 /* FFMapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FFMapViewController.swift; sourceTree = "<group>"; };
 		D3F135DF1CBD2A0700ED57E3 /* FoodFinder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FoodFinder.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D3F135E21CBD2A0700ED57E3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D3F135E91CBD2A0700ED57E3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -102,6 +104,7 @@
 			children = (
 				D36840A51CBD5B3B00A41CBE /* FFVenuesViewController.swift */,
 				D36840A71CBD60BB00A41CBE /* FFFoursquareVenuesViewController.swift */,
+				D3C375901CBE990300420ED1 /* FFMapViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -237,6 +240,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D3F135F61CBD2AB500ED57E3 /* FFViewController.swift in Sources */,
+				D3C375911CBE990300420ED1 /* FFMapViewController.swift in Sources */,
 				D3F135E31CBD2A0700ED57E3 /* AppDelegate.swift in Sources */,
 				D36840A81CBD60BB00A41CBE /* FFFoursquareVenuesViewController.swift in Sources */,
 				D36840A41CBD55F600A41CBE /* FFVenue.swift in Sources */,

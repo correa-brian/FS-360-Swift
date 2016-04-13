@@ -153,12 +153,14 @@ class FFVenuesViewController: FFViewController, UITableViewDelegate, UITableView
     //MARK: - Configure Cell
     
     func configureCell(cell: UITableViewCell, indexPath:NSIndexPath) -> UITableViewCell {
+        
         let venue = self.venuesArray[indexPath.row]
         
         //changed from venue["name] as? String
         cell.textLabel?.text = venue.name
-        cell.detailTextLabel?.text = ("\(venue.address), \(venue.rating) rats")
+        cell.detailTextLabel?.text = ("\(venue.address), \(venue.rating) stars")
         return cell
+        
     }
     
     override func didReceiveMemoryWarning() {
