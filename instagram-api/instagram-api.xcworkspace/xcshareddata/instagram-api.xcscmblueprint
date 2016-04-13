@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "D6432EF13B7E702FF53FD2EADA33E10EF9E614B3",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "D6432EF13B7E702FF53FD2EADA33E10EF9E614B3" : 0,
+    "E89B79A2CA4FEDCD610D12CF1C09B2378532C8CE" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "9CBB6A1E-8450-4279-B50A-5CC3C412C28C",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "D6432EF13B7E702FF53FD2EADA33E10EF9E614B3" : "FS-360\/",
+    "E89B79A2CA4FEDCD610D12CF1C09B2378532C8CE" : ""
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "instagram-api",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "instagram-api\/instagram-api.xcworkspace",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/correa-brian\/FS-360-Swift.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "D6432EF13B7E702FF53FD2EADA33E10EF9E614B3"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/correa-brian\/Swift-Projects.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "E89B79A2CA4FEDCD610D12CF1C09B2378532C8CE"
+    }
+  ]
+}
