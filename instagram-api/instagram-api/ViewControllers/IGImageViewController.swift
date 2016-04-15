@@ -33,6 +33,25 @@ class IGImageViewController: IGViewController, UITableViewDelegate, UITableViewD
         
         self.postTable.tableHeaderView = postImageView
         
+        let caption = UITextView(frame: CGRect(x: 0, y: 276, width: width, height: 30))
+        caption.text = post.caption
+        caption.textColor = UIColor.whiteColor()
+        caption.font = UIFont.systemFontOfSize(14)
+        caption.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0)
+        self.postTable.addSubview(caption)
+        
+        let imageGradient = CAGradientLayer()
+        imageGradient.frame = postImageView.bounds
+        var colors = [CGColor]()
+        colors.append(UIColor(red: 0, green: 0, blue: 0, alpha: 1).CGColor)
+        colors.append(UIColor(red: 0, green: 0, blue: 0, alpha: 0).CGColor)
+        
+        imageGradient.colors = colors
+        imageGradient.startPoint = CGPointMake(0.5, 1)
+        imageGradient.endPoint = CGPointMake(0.5, 0.5)
+        
+        postImageView.layer.addSublayer(imageGradient)
+        
         view.addSubview(postTable)
         
         self.view = view
