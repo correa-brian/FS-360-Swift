@@ -11,10 +11,12 @@ import Alamofire
 
 class IGFeedViewController: IGViewController, UITableViewDelegate, UITableViewDataSource {
     
-    var captionTable: UITableView!
-    var captionsArray = Array<IGCaption>()
+    //MARK: Properties
     
-    //MARK - Lifecycle Methods
+    var itemsTable: UITableView!
+    var itemsArray = Array<IGItem>()
+    
+    //MARK: Lifecycle Methods
     
     override func loadView() {
         let frame = UIScreen.mainScreen().bounds
@@ -22,14 +24,13 @@ class IGFeedViewController: IGViewController, UITableViewDelegate, UITableViewDa
         view.backgroundColor = UIColor.redColor()
         
         
-        self.captionTable = UITableView(frame: frame, style: .Plain)
-        self.captionTable.dataSource = self
-        self.captionTable.delegate = self
+        self.itemsTable = UITableView(frame: frame, style: .Plain)
+        self.itemsTable.dataSource = self
+        self.itemsTable.delegate = self
         
-        self.captionTable.autoresizingMask = .FlexibleTopMargin
-        self.captionTable.separatorStyle = .None
+//        self.captionTable.autoresizingMask = .FlexibleTopMargin
         
-        view.addSubview(self.captionTable)
+        view.addSubview(self.itemsTable)
         
         self.view = view
     }
@@ -37,53 +38,107 @@ class IGFeedViewController: IGViewController, UITableViewDelegate, UITableViewDa
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        let url = "https://www.instagram.com/therock/media/"
+        let url = "https://www.instagram.com/kobebryant/media/"
         Alamofire.request(.GET, url, parameters: nil).responseJSON { response in
             if let JSON = response.result.value as? Dictionary<String, AnyObject>{
 //                print("\(JSON)")
                 
-                if let resp = JSON["items"] as? Array<Dictionary<String, AnyObject>>{
-//                    print("\(resp)")
+                if let items = JSON["items"] as? Array<Dictionary<String, AnyObject>>{
+//                    print("\(items)")
                 
-                    for itemInfo in resp {
+                    for itemInfo in items {
 //                        print("ITEM---------\(itemInfo)")
                         
-                        let caption = IGCaption()
-                        caption.populate(itemInfo)
-                        self.captionsArray.append(caption)
+                        let item = IGItem()
+                        item.populate(itemInfo)
+                        //Key Value Observation (kvo)
+                        self.itemsArray.append(item)
                     }
-                    self.captionTable.reloadData()
+                    
+                    self.itemsTable.reloadData()
                 }
             }
         }
         
     }
     
+    //MARK: Callback (Observation) Method
+    
+    override func observeValueForKeyPath(keyPath: String?, ofObject object: AnyObject?, change: [String : AnyObject]?, context: UnsafeMutablePointer<Void>) {
+        
+        if (keyPath == "image"){
+//            print("IMAGE DOWNLOADED")
+            
+            dispatch_async(dispatch_get_main_queue(), {
+                self.itemsTable.reloadData()
+            })
+            
+        }
+    }
+    
     //MARK: Table Delegate Methods
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return self.captionsArray.count
+        return self.itemsArray.count
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cellId = "cellId"
         
-        if let cell = tableView.dequeueReusableCellWithIdentifier(cellId){
+        if let cell = tableView.dequeueReusableCellWithIdentifier(cellId) as? BCTableViewCell {
             return self.configureCell(cell, indexPath: indexPath)
         }
         
-        let cell = UITableViewCell(style: .Subtitle, reuseIdentifier: cellId)
+        let cell = BCTableViewCell(style: .Subtitle, reuseIdentifier: cellId)
         return self.configureCell(cell, indexPath: indexPath)
+    }
+    
+//    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+//        
+//        let captionInfo = self.itemsArray[indexPath.row]
+//        
+//        let capText = NSString(string: captionInfo.captionText)
+//        
+//        let rect = capText.boundingRectWithSize(CGSizeMake(tableView.frame.size.width, 100),
+//                                                    options: .UsesLineFragmentOrigin,
+//                                                    attributes: [NSFontAttributeName: UIFont.systemFontOfSize(14)],
+//                                                    context: nil)
+//        
+//        if(rect.size.height < 44){
+//            return 100
+//        }
+//        
+//        return rect.size.height+80
+//    }
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        
+        let item = self.itemsArray[indexPath.row]
+        
+        let imageVC = IGImageViewController()
+        imageVC.post = item
+        self.navigationController?.pushViewController(imageVC, animated: true)
+        
     }
     
     //MARK: Configure Cell
     
-    func configureCell(cell: UITableViewCell, indexPath: NSIndexPath) -> UITableViewCell {
+    func configureCell(cell: BCTableViewCell, indexPath: NSIndexPath) -> UITableViewCell {
         
-        let caption = self.captionsArray[indexPath.row]
+        let item = self.itemsArray[indexPath.row]
         
-        cell.textLabel?.text = caption.captionText
+        cell.textLabel?.text = item.caption
+        
+        if (item.image == nil){
+            item.addObserver(self, forKeyPath: "image", options: .Initial, context: nil)
+            cell.imageView?.image = nil
+            cell.detailTextLabel?.text = "Comments: \(item.count)"
+            item.fetchImage()
+            return cell
+        }
+        
+        cell.imageView?.image = item.image
         return cell
         
     }
@@ -93,5 +148,4 @@ class IGFeedViewController: IGViewController, UITableViewDelegate, UITableViewDa
 
     }
     
-
 }
