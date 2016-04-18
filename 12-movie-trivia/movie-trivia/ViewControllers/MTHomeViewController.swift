@@ -16,7 +16,7 @@ class MTHomeViewController: MovieTriviaViewController {
     //Objects
     var movieSummary: UILabel!
     var moviesArray = Array<Movie>()
-//    var movie = Movie()
+    var matchesCount = 0
     
     //UI
     var titleLabel: UILabel!
@@ -36,18 +36,20 @@ class MTHomeViewController: MovieTriviaViewController {
         let w = frame.size.width
         let originX = frame.size.width * 0.5
         
-        self.titleLabel = UILabel(frame: CGRect(x: originX-150, y: 25, width: 300, height: 44))
+        self.titleLabel = UILabel(frame: CGRect(x: originX-150, y: 20, width: 300, height: 44))
         self.titleLabel.textAlignment = .Center
         self.titleLabel.text = "Welcome to the Movie Machine"
         
         view.addSubview(self.titleLabel)
         
-        self.movieSummary = UILabel(frame: CGRect(x: 20, y: 75, width: w-40, height: 200))
+        self.movieSummary = UILabel(frame: CGRect(x: 10, y: 70, width: w-20, height: 200))
         self.movieSummary.textAlignment = .Center
         self.movieSummary.numberOfLines = 0
         self.movieSummary.lineBreakMode = .ByWordWrapping
-        self.movieSummary?.font = UIFont(name: "Arial", size: 14)
+        self.movieSummary!.adjustsFontSizeToFitWidth = true
+        self.movieSummary?.font = UIFont(name: "Arial", size: 16)
         self.movieSummary.text = "Movie Summary"
+        self.movieSummary.layer.masksToBounds = true
         self.movieSummary.layer.borderWidth = 1.0
         self.movieSummary.layer.borderColor = UIColor.blackColor().CGColor
         self.movieSummary.layer.cornerRadius = 5.0
@@ -56,9 +58,12 @@ class MTHomeViewController: MovieTriviaViewController {
         
         self.btn1 = UIButton(type: .Custom)
         self.btn1.autoresizingMask = .FlexibleTopMargin
-        self.btn1.frame = CGRect(x: originX-120, y: 375, width: 100, height: 44)
+        self.btn1.frame = CGRect(x: originX-150, y: 350, width: 300, height: 44)
         self.btn1.setTitle("1st Choice", forState: .Normal)
         self.btn1.setTitleColor(UIColor.blackColor(), forState: .Normal)
+        self.btn1.titleLabel!.font = UIFont(name: "Arial", size: 14)
+        self.btn1.titleLabel?.numberOfLines = 0
+        self.btn1.titleLabel?.adjustsFontSizeToFitWidth = true
         self.btn1.layer.borderColor = UIColor.blackColor().CGColor
         self.btn1.layer.borderWidth = 1.0
         self.btn1.layer.cornerRadius = 4.0
@@ -68,9 +73,12 @@ class MTHomeViewController: MovieTriviaViewController {
         
         self.btn2 = UIButton(type: .Custom)
         self.btn2.autoresizingMask = .FlexibleTopMargin
-        self.btn2.frame = CGRect(x: originX+20, y: 375, width: 100, height: 44)
+        self.btn2.frame = CGRect(x: originX-150, y: 400, width: 300, height: 44)
         self.btn2.setTitle("2nd Choice", forState: .Normal)
         self.btn2.setTitleColor(UIColor.blackColor(), forState: .Normal)
+        self.btn2.titleLabel!.font = UIFont(name: "Arial", size: 14)
+        self.btn2.titleLabel?.numberOfLines = 0
+        self.btn2.titleLabel?.adjustsFontSizeToFitWidth = true
         self.btn2.layer.borderColor = UIColor.blackColor().CGColor
         self.btn2.layer.borderWidth = 1.0
         self.btn2.layer.cornerRadius = 4.0
@@ -80,9 +88,12 @@ class MTHomeViewController: MovieTriviaViewController {
         
         self.btn3 = UIButton(type: .Custom)
         self.btn3.autoresizingMask = .FlexibleTopMargin
-        self.btn3.frame = CGRect(x: originX-120, y: 450, width: 100, height: 44)
+        self.btn3.frame = CGRect(x: originX-150, y: 450, width: 300, height: 44)
         self.btn3.setTitle("3rd Choice", forState: .Normal)
         self.btn3.setTitleColor(UIColor.blackColor(), forState: .Normal)
+        self.btn3.titleLabel!.font = UIFont(name: "Arial", size: 14)
+        self.btn3.titleLabel?.numberOfLines = 0
+        self.btn3.titleLabel?.adjustsFontSizeToFitWidth = true
         self.btn3.layer.borderColor = UIColor.blackColor().CGColor
         self.btn3.layer.borderWidth = 1.0
         self.btn3.layer.cornerRadius = 4.0
@@ -92,9 +103,12 @@ class MTHomeViewController: MovieTriviaViewController {
         
         self.btn4 = UIButton(type: .Custom)
         self.btn4.autoresizingMask = .FlexibleTopMargin
-        self.btn4.frame = CGRect(x: originX+20, y: 450, width: 100, height: 44)
+        self.btn4.frame = CGRect(x: originX-150, y: 500, width: 300, height: 44)
         self.btn4.setTitle("4th Choice", forState: .Normal)
         self.btn4.setTitleColor(UIColor.blackColor(), forState: .Normal)
+        self.btn4.titleLabel!.font = UIFont(name: "Arial", size: 14)
+        self.btn4.titleLabel?.numberOfLines = 0
+        self.btn4.titleLabel?.adjustsFontSizeToFitWidth = true
         self.btn4.layer.borderColor = UIColor.blackColor().CGColor
         self.btn4.layer.borderWidth = 1.0
         self.btn4.layer.cornerRadius = 4.0
@@ -122,7 +136,7 @@ class MTHomeViewController: MovieTriviaViewController {
                     movie.populate(movieInfo)
                     self.moviesArray.append(movie)
                     }
-                    self.firstQuestion()
+                    self.generateFields()
                 }
             }
         }
@@ -134,13 +148,45 @@ class MTHomeViewController: MovieTriviaViewController {
         return randomIndex
     }
     
-    func firstQuestion(){
+    func generateFields(){
+  
+        let summary = self.moviesArray[0]
+//        let summary = self.moviesArray[self.randomMovie()]
         
-        self.movieSummary.text = self.moviesArray[self.randomMovie()].movieOverview
-        self.btn1.setTitle(self.moviesArray[self.randomMovie()].movieTitle, forState: .Normal)
-        self.btn2.setTitle(self.moviesArray[self.randomMovie()].movieTitle, forState: .Normal)
-        self.btn3.setTitle(self.moviesArray[self.randomMovie()].movieTitle, forState: .Normal)
-        self.btn4.setTitle(self.moviesArray[self.randomMovie()].movieTitle, forState: .Normal)
+        var fields = Array<Int>()
+
+        let btn1 = self.moviesArray[0]
+        let btn2 = self.moviesArray[1]
+        let btn3 = self.moviesArray[2]
+        let btn4 = self.moviesArray[0]
+        
+//        let btn1 = self.moviesArray[self.randomMovie()]
+//        let btn2 = self.moviesArray[self.randomMovie()]
+//        let btn3 = self.moviesArray[self.randomMovie()]
+//        let btn4 = self.moviesArray[self.randomMovie()]
+        
+        fields.append(btn1.movieId)
+        fields.append(btn2.movieId)
+        fields.append(btn3.movieId)
+        fields.append(btn4.movieId)
+        
+        print("\(fields)")
+        
+        for i in fields {
+            if (i == summary.movieId){
+                self.matchesCount = self.matchesCount+1
+            }
+        }
+        
+        print("\(self.matchesCount)")
+        
+        self.movieSummary.text = summary.movieOverview
+
+        self.btn1.setTitle(btn1.movieTitle, forState: .Normal)
+        self.btn2.setTitle(btn2.movieTitle, forState: .Normal)
+        self.btn3.setTitle(btn3.movieTitle, forState: .Normal)
+        self.btn4.setTitle(btn4.movieTitle, forState: .Normal)
+        
     }
 
     override func didReceiveMemoryWarning() {
