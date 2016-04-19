@@ -13,13 +13,16 @@ class MTHomeViewController: MovieTriviaViewController {
     
     //MARK: Properties
     
-    //Objects
-    var movieSummary: UILabel!
+    //Initialized Variables
+    var summary = Movie()
     var moviesArray = Array<Movie>()
     var matchesCount = 0
+    var score = 0
     
-    //UI
+    //UI Elements
+    var scoreLabel: UILabel!
     var titleLabel: UILabel!
+    var movieSummary: UILabel!
     var btn1: UIButton!
     var btn2: UIButton!
     var btn3: UIButton!
@@ -48,7 +51,7 @@ class MTHomeViewController: MovieTriviaViewController {
         self.movieSummary.lineBreakMode = .ByWordWrapping
         self.movieSummary!.adjustsFontSizeToFitWidth = true
         self.movieSummary?.font = UIFont(name: "Arial", size: 16)
-        self.movieSummary.text = "Movie Summary"
+        self.movieSummary.text = self.summary.movieOverview
         self.movieSummary.layer.masksToBounds = true
         self.movieSummary.layer.borderWidth = 1.0
         self.movieSummary.layer.borderColor = UIColor.blackColor().CGColor
@@ -69,6 +72,8 @@ class MTHomeViewController: MovieTriviaViewController {
         self.btn1.layer.cornerRadius = 4.0
         self.btn1.layer.masksToBounds = true
         
+        self.btn1.addTarget(self, action: #selector(MTHomeViewController.selectedAnswer(_:)), forControlEvents: .TouchUpInside)
+        
         view.addSubview(self.btn1)
         
         self.btn2 = UIButton(type: .Custom)
@@ -83,6 +88,8 @@ class MTHomeViewController: MovieTriviaViewController {
         self.btn2.layer.borderWidth = 1.0
         self.btn2.layer.cornerRadius = 4.0
         self.btn2.layer.masksToBounds = true
+        
+        self.btn2.addTarget(self, action: #selector(MTHomeViewController.selectedAnswer(_:)), forControlEvents: .TouchUpInside)
         
         view.addSubview(self.btn2)
         
@@ -99,6 +106,8 @@ class MTHomeViewController: MovieTriviaViewController {
         self.btn3.layer.cornerRadius = 4.0
         self.btn3.layer.masksToBounds = true
         
+        self.btn3.addTarget(self, action: #selector(MTHomeViewController.selectedAnswer(_:)), forControlEvents: .TouchUpInside)
+        
         view.addSubview(self.btn3)
         
         self.btn4 = UIButton(type: .Custom)
@@ -114,7 +123,15 @@ class MTHomeViewController: MovieTriviaViewController {
         self.btn4.layer.cornerRadius = 4.0
         self.btn4.layer.masksToBounds = true
         
+        self.btn4.addTarget(self, action: #selector(MTHomeViewController.selectedAnswer(_:)), forControlEvents: .TouchUpInside)
+        
         view.addSubview(self.btn4)
+
+        self.scoreLabel = UILabel(frame: CGRect(x: originX-50, y: 0, width: 100, height: 44))
+        self.scoreLabel.textAlignment = .Center
+        self.scoreLabel.text = "Score: \(self.score)"
+        
+        view.addSubview(self.scoreLabel)
         
         self.view = view
     }
@@ -150,43 +167,59 @@ class MTHomeViewController: MovieTriviaViewController {
     
     func generateFields(){
   
-        let summary = self.moviesArray[0]
-//        let summary = self.moviesArray[self.randomMovie()]
+        self.summary = self.moviesArray[self.randomMovie()]
         
-        var fields = Array<Int>()
+        let btn1 = self.moviesArray[self.randomMovie()]
+        let btn2 = self.moviesArray[self.randomMovie()]
+        let btn3 = self.moviesArray[self.randomMovie()]
+        let btn4 = self.moviesArray[self.randomMovie()]
+        
+        var movieIdArray = Array<Int>()
 
-        let btn1 = self.moviesArray[0]
-        let btn2 = self.moviesArray[1]
-        let btn3 = self.moviesArray[2]
-        let btn4 = self.moviesArray[0]
+        movieIdArray.append(btn1.movieId)
+        movieIdArray.append(btn2.movieId)
+        movieIdArray.append(btn3.movieId)
+        movieIdArray.append(btn4.movieId)
         
-//        let btn1 = self.moviesArray[self.randomMovie()]
-//        let btn2 = self.moviesArray[self.randomMovie()]
-//        let btn3 = self.moviesArray[self.randomMovie()]
-//        let btn4 = self.moviesArray[self.randomMovie()]
+        print("Overview id: \(self.summary.movieId)")
+        print("id array: \(movieIdArray)")
         
-        fields.append(btn1.movieId)
-        fields.append(btn2.movieId)
-        fields.append(btn3.movieId)
-        fields.append(btn4.movieId)
+        //Checking array for matches to overview id
         
-        print("\(fields)")
-        
-        for i in fields {
-            if (i == summary.movieId){
+        for id in movieIdArray {
+            if (id == self.summary.movieId) {
                 self.matchesCount = self.matchesCount+1
             }
         }
         
         print("\(self.matchesCount)")
         
-        self.movieSummary.text = summary.movieOverview
+        self.movieSummary.text = self.summary.movieOverview
 
         self.btn1.setTitle(btn1.movieTitle, forState: .Normal)
         self.btn2.setTitle(btn2.movieTitle, forState: .Normal)
         self.btn3.setTitle(btn3.movieTitle, forState: .Normal)
         self.btn4.setTitle(btn4.movieTitle, forState: .Normal)
         
+        //Checking matches for =!
+        
+        if(self.matchesCount != 1){
+            
+            self.generateFields()
+        }
+    }
+    
+    func selectedAnswer(sender: UIButton) {
+        
+        print("selectedAnswer")
+        
+        if (sender.titleLabel!.text == self.summary.movieTitle){
+            print("success")
+            self.score = self.score+1
+            self.scoreLabel.text = "Score: \(self.score)"
+            self.matchesCount = 0
+            self.generateFields()
+        }
     }
 
     override func didReceiveMemoryWarning() {
