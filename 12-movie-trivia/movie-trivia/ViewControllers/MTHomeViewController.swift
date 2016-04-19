@@ -17,6 +17,7 @@ class MTHomeViewController: MovieTriviaViewController {
     var summary = Movie()
     var moviesArray = Array<Movie>()
     var matchesCount = 0
+    var duplicates = 0
     var score = 0
     
     //UI Elements
@@ -34,14 +35,14 @@ class MTHomeViewController: MovieTriviaViewController {
         edgesForExtendedLayout = .None
         let frame = UIScreen.mainScreen().bounds
         let view = UIView(frame: frame)
-        view.backgroundColor = UIColor.whiteColor()
+        view.backgroundColor = UIColor(red: 247/255, green: 255/255, blue: 253/255, alpha: 1)
         
         let w = frame.size.width
         let originX = frame.size.width * 0.5
         
         self.titleLabel = UILabel(frame: CGRect(x: originX-150, y: 20, width: 300, height: 44))
         self.titleLabel.textAlignment = .Center
-        self.titleLabel.text = "Welcome to the Movie Machine"
+        self.titleLabel.text = "Movie Golf"
         
         view.addSubview(self.titleLabel)
         
@@ -50,7 +51,9 @@ class MTHomeViewController: MovieTriviaViewController {
         self.movieSummary.numberOfLines = 0
         self.movieSummary.lineBreakMode = .ByWordWrapping
         self.movieSummary!.adjustsFontSizeToFitWidth = true
-        self.movieSummary?.font = UIFont(name: "Arial", size: 16)
+        self.movieSummary?.font = UIFont(name: "ChalkboardSE-Light", size: 16)
+        self.movieSummary!.textColor = UIColor.blackColor()
+//        self.movieSummary!.textColor = UIColor(red: 209/255, green: 220/255, blue: 255/255, alpha: 1)
         self.movieSummary.text = self.summary.movieOverview
         self.movieSummary.layer.masksToBounds = true
         self.movieSummary.layer.borderWidth = 1.0
@@ -64,7 +67,7 @@ class MTHomeViewController: MovieTriviaViewController {
         self.btn1.frame = CGRect(x: originX-150, y: 350, width: 300, height: 44)
         self.btn1.setTitle("1st Choice", forState: .Normal)
         self.btn1.setTitleColor(UIColor.blackColor(), forState: .Normal)
-        self.btn1.titleLabel!.font = UIFont(name: "Arial", size: 14)
+        self.btn1.titleLabel!.font = UIFont(name: "ChalkboardSE-Light", size: 14)
         self.btn1.titleLabel?.numberOfLines = 0
         self.btn1.titleLabel?.adjustsFontSizeToFitWidth = true
         self.btn1.layer.borderColor = UIColor.blackColor().CGColor
@@ -81,7 +84,7 @@ class MTHomeViewController: MovieTriviaViewController {
         self.btn2.frame = CGRect(x: originX-150, y: 400, width: 300, height: 44)
         self.btn2.setTitle("2nd Choice", forState: .Normal)
         self.btn2.setTitleColor(UIColor.blackColor(), forState: .Normal)
-        self.btn2.titleLabel!.font = UIFont(name: "Arial", size: 14)
+        self.btn2.titleLabel!.font = UIFont(name: "ChalkboardSE-Light", size: 14)
         self.btn2.titleLabel?.numberOfLines = 0
         self.btn2.titleLabel?.adjustsFontSizeToFitWidth = true
         self.btn2.layer.borderColor = UIColor.blackColor().CGColor
@@ -98,7 +101,7 @@ class MTHomeViewController: MovieTriviaViewController {
         self.btn3.frame = CGRect(x: originX-150, y: 450, width: 300, height: 44)
         self.btn3.setTitle("3rd Choice", forState: .Normal)
         self.btn3.setTitleColor(UIColor.blackColor(), forState: .Normal)
-        self.btn3.titleLabel!.font = UIFont(name: "Arial", size: 14)
+        self.btn3.titleLabel!.font = UIFont(name: "ChalkboardSE-Light", size: 14)
         self.btn3.titleLabel?.numberOfLines = 0
         self.btn3.titleLabel?.adjustsFontSizeToFitWidth = true
         self.btn3.layer.borderColor = UIColor.blackColor().CGColor
@@ -115,7 +118,7 @@ class MTHomeViewController: MovieTriviaViewController {
         self.btn4.frame = CGRect(x: originX-150, y: 500, width: 300, height: 44)
         self.btn4.setTitle("4th Choice", forState: .Normal)
         self.btn4.setTitleColor(UIColor.blackColor(), forState: .Normal)
-        self.btn4.titleLabel!.font = UIFont(name: "Arial", size: 14)
+        self.btn4.titleLabel!.font = UIFont(name: "ChalkboardSE-Light", size: 14)
         self.btn4.titleLabel?.numberOfLines = 0
         self.btn4.titleLabel?.adjustsFontSizeToFitWidth = true
         self.btn4.layer.borderColor = UIColor.blackColor().CGColor
@@ -127,8 +130,8 @@ class MTHomeViewController: MovieTriviaViewController {
         
         view.addSubview(self.btn4)
 
-        self.scoreLabel = UILabel(frame: CGRect(x: originX-50, y: 0, width: 100, height: 44))
-        self.scoreLabel.textAlignment = .Center
+        self.scoreLabel = UILabel(frame: CGRect(x: originX+45, y: 0, width: 100, height: 44))
+        self.scoreLabel.textAlignment = .Right
         self.scoreLabel.text = "Score: \(self.score)"
         
         view.addSubview(self.scoreLabel)
@@ -167,6 +170,9 @@ class MTHomeViewController: MovieTriviaViewController {
     
     func generateFields(){
   
+        self.duplicates = 0
+        self.matchesCount = 0
+        
         self.summary = self.moviesArray[self.randomMovie()]
         
         let btn1 = self.moviesArray[self.randomMovie()]
@@ -190,9 +196,15 @@ class MTHomeViewController: MovieTriviaViewController {
             if (id == self.summary.movieId) {
                 self.matchesCount = self.matchesCount+1
             }
+            for idOff in movieIdArray{
+                if(idOff == id){
+                    self.duplicates = self.duplicates+1
+                }
+            }
         }
         
         print("\(self.matchesCount)")
+        print("\(self.duplicates)")
         
         self.movieSummary.text = self.summary.movieOverview
 
@@ -203,7 +215,7 @@ class MTHomeViewController: MovieTriviaViewController {
         
         //Checking matches for =!
         
-        if(self.matchesCount != 1){
+        if(self.matchesCount != 1 || self.duplicates != 4){
             
             self.generateFields()
         }
@@ -218,8 +230,24 @@ class MTHomeViewController: MovieTriviaViewController {
             self.score = self.score+1
             self.scoreLabel.text = "Score: \(self.score)"
             self.matchesCount = 0
+            self.duplicates = 0
             self.generateFields()
         }
+        else {
+            self.score = 0
+            self.scoreLabel.text = "Score: \(self.score)"
+            self.generateFields()
+            print("Gotta Start Over")
+            
+            let alert = UIAlertController(title: "Game Over", message: "Better Luck Next Time", preferredStyle: .Alert)
+            
+            let okBtn = UIAlertAction(title: "Start Over", style: .Default, handler: nil)
+            
+            alert.addAction(okBtn)
+            
+            presentViewController(alert, animated: true, completion: nil)
+        }
+        
     }
 
     override func didReceiveMemoryWarning() {
