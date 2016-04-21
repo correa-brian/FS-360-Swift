@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		56E8ABB911B2001F54DF252E /* Pods_WhereAmI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED10159D44FBC9382ACE1614 /* Pods_WhereAmI.framework */; };
+		D36E4A6A1CC9117800337486 /* profile@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D36E4A681CC9117800337486 /* profile@2x.png */; };
+		D36E4A6B1CC9117800337486 /* question@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D36E4A691CC9117800337486 /* question@2x.png */; };
+		D36E4A6D1CC918AF00337486 /* WACreateQuestionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D36E4A6C1CC918AF00337486 /* WACreateQuestionViewController.swift */; };
+		D36E4A6F1CC91BA200337486 /* WAQuestionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D36E4A6E1CC91BA200337486 /* WAQuestionsViewController.swift */; };
 		D3A4B5201CC7D4410086C6DF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3A4B51F1CC7D4410086C6DF /* AppDelegate.swift */; };
 		D3A4B5271CC7D4420086C6DF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D3A4B5261CC7D4420086C6DF /* Assets.xcassets */; };
 		D3A4B5351CC7DAD50086C6DF /* WAViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3A4B5341CC7DAD50086C6DF /* WAViewController.swift */; };
@@ -16,6 +20,10 @@
 
 /* Begin PBXFileReference section */
 		781F448877EDF161C62F1E50 /* Pods-WhereAmI.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WhereAmI.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WhereAmI/Pods-WhereAmI.debug.xcconfig"; sourceTree = "<group>"; };
+		D36E4A681CC9117800337486 /* profile@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "profile@2x.png"; sourceTree = "<group>"; };
+		D36E4A691CC9117800337486 /* question@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "question@2x.png"; sourceTree = "<group>"; };
+		D36E4A6C1CC918AF00337486 /* WACreateQuestionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WACreateQuestionViewController.swift; sourceTree = "<group>"; };
+		D36E4A6E1CC91BA200337486 /* WAQuestionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WAQuestionsViewController.swift; sourceTree = "<group>"; };
 		D3A4B51C1CC7D4410086C6DF /* WhereAmI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WhereAmI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D3A4B51F1CC7D4410086C6DF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D3A4B5261CC7D4420086C6DF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -55,6 +63,15 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		D36E4A671CC9117800337486 /* icons */ = {
+			isa = PBXGroup;
+			children = (
+				D36E4A681CC9117800337486 /* profile@2x.png */,
+				D36E4A691CC9117800337486 /* question@2x.png */,
+			);
+			path = icons;
+			sourceTree = "<group>";
+		};
 		D3A4B5131CC7D4410086C6DF = {
 			isa = PBXGroup;
 			children = (
@@ -76,6 +93,7 @@
 		D3A4B51E1CC7D4410086C6DF /* WhereAmI */ = {
 			isa = PBXGroup;
 			children = (
+				D36E4A671CC9117800337486 /* icons */,
 				D3A4B5391CC7ED2F0086C6DF /* Models */,
 				D3A4B5361CC7DB8E0086C6DF /* ViewControllers */,
 				D3A4B5331CC7DACC0086C6DF /* BaseClasses */,
@@ -98,6 +116,8 @@
 			isa = PBXGroup;
 			children = (
 				D3A4B5371CC7DBA90086C6DF /* WARegisterViewController.swift */,
+				D36E4A6C1CC918AF00337486 /* WACreateQuestionViewController.swift */,
+				D36E4A6E1CC91BA200337486 /* WAQuestionsViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -171,6 +191,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D36E4A6B1CC9117800337486 /* question@2x.png in Resources */,
+				D36E4A6A1CC9117800337486 /* profile@2x.png in Resources */,
 				D3A4B5271CC7D4420086C6DF /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -231,6 +253,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				D3A4B5351CC7DAD50086C6DF /* WAViewController.swift in Sources */,
+				D36E4A6D1CC918AF00337486 /* WACreateQuestionViewController.swift in Sources */,
+				D36E4A6F1CC91BA200337486 /* WAQuestionsViewController.swift in Sources */,
 				D3A4B5381CC7DBA90086C6DF /* WARegisterViewController.swift in Sources */,
 				D3A4B5201CC7D4410086C6DF /* AppDelegate.swift in Sources */,
 			);

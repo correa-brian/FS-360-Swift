@@ -18,7 +18,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
         let registerVc = WARegisterViewController()
-        self.window?.rootViewController = registerVc
+        let questionVc = WAQuestionsViewController()
+        let tabCtr = UITabBarController()
+        tabCtr.viewControllers = [
+            UINavigationController(rootViewController: questionVc),
+            registerVc
+        ]
+        
+        self.window?.rootViewController = tabCtr
         
         self.window?.makeKeyAndVisible()
         

@@ -13,7 +13,18 @@ class WARegisterViewController: WAViewController, UITextFieldDelegate {
     
     var textFields = Array<UITextField>()
     
+    required init?(coder aDecoder: NSCoder){
+        super.init(coder: aDecoder)
+    }
+    
+    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?){
+        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
+        self.title = "Profile"
+        self.tabBarItem.image = UIImage(named: "profile.png")
+    }
+
     override func loadView(){
+        
         let frame = UIScreen.mainScreen().bounds
         let view = UIView(frame: frame)
         view.backgroundColor = UIColor.whiteColor()
@@ -53,11 +64,12 @@ class WARegisterViewController: WAViewController, UITextFieldDelegate {
     func registerUser(btn: UIButton){
         
         var profileInfo = Dictionary<String, AnyObject>()
+        
         for field in self.textFields {
             let fieldName = field.placeholder
             profileInfo[fieldName!.lowercaseString] = field.text
         }
-        
+
         let name = profileInfo["name"] as? String
         let nameParts = name!.componentsSeparatedByString(" ")
         profileInfo["firstName"] = nameParts[0]
@@ -66,6 +78,7 @@ class WARegisterViewController: WAViewController, UITextFieldDelegate {
         }
         
         print("registerUser: \(profileInfo)")
+        
         
         let url = "http://localhost:3000/api/profile"
     
