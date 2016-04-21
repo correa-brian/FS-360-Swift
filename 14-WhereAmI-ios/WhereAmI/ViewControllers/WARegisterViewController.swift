@@ -27,7 +27,7 @@ class WARegisterViewController: WAViewController, UITextFieldDelegate {
         
         let frame = UIScreen.mainScreen().bounds
         let view = UIView(frame: frame)
-        view.backgroundColor = UIColor.whiteColor()
+        view.backgroundColor = UIColor(red: 255/255, green: 238/255, blue: 220/255, alpha: 1)
         
         let fields = ["name", "username", "password"]
         let padding = CGFloat(20)
@@ -47,7 +47,8 @@ class WARegisterViewController: WAViewController, UITextFieldDelegate {
         }
         
         let btnRegister = UIButton(frame: CGRect(x: padding, y: y, width: width-2*padding, height: 44))
-        btnRegister.backgroundColor = UIColor.lightGrayColor()
+        btnRegister.backgroundColor = UIColor(red: 148/255, green: 158/255, blue: 194/255, alpha: 1)
+        btnRegister.layer.cornerRadius = 5.0
         btnRegister.setTitle("Sign Up", forState: .Normal)
         btnRegister.addTarget(self, action: #selector(WARegisterViewController.registerUser(_:)), forControlEvents: .TouchUpInside)
         

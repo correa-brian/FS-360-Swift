@@ -8,31 +8,33 @@
 
 import UIKit
 
-class WACreateQuestionViewController: WAViewController, UITextFieldDelegate {
+class WACreateQuestionViewController: WAViewController, UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIActionSheetDelegate {
     
-    var image: UIImageView!
+    var imagePicker: UIImagePickerController!
+    var questionImage: UIImageView!
     var textFields = Array<UITextField>()
 
     override func loadView() {
         
         let frame = UIScreen.mainScreen().bounds
         let view = UIView(frame: frame)
-        view.backgroundColor = UIColor.blueColor()
+        view.backgroundColor = UIColor(red: 255/255, green: 238/255, blue: 220/255, alpha: 1)
         
         var padding = CGFloat(60)
         var y = CGFloat(64)
         var dimension = frame.size.width-2*padding
         
-        self.image = UIImageView(frame: CGRect(x: padding, y: y, width: dimension, height: dimension))
-        self.image.backgroundColor = UIColor.redColor()
-        view.addSubview(self.image)
+        self.questionImage = UIImageView(frame: CGRect(x: padding, y: y, width: dimension, height: dimension))
+        self.questionImage.backgroundColor = UIColor(red: 148/255, green: 158/255, blue: 194/255, alpha: 1)
+        view.addSubview(self.questionImage)
         
         let btnSelectImage = UIButton(frame: CGRect(x: padding, y: y, width: dimension, height: 44))
-        btnSelectImage.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.65)
+        btnSelectImage.backgroundColor = UIColor(red: 152/255, green: 207/25, blue: 166/255, alpha: 0.65)
         btnSelectImage.setTitle("Tap to Select Image", forState: .Normal)
+        btnSelectImage.addTarget(self, action: #selector(WACreateQuestionViewController.takePicture(_:)), forControlEvents: .TouchUpInside)
         view.addSubview(btnSelectImage)
         
-        y += self.image.frame.size.height+24
+        y += self.questionImage.frame.size.height+24
         
         padding = 20
         let width = frame.size.width-2*padding
@@ -52,12 +54,16 @@ class WACreateQuestionViewController: WAViewController, UITextFieldDelegate {
         y = frame.size.height-44-padding
         
         let btnCancel = UIButton(frame: CGRect(x: padding, y: y, width: dimension, height: 44))
-        btnCancel.backgroundColor = UIColor.redColor()
+        btnCancel.backgroundColor = UIColor(red: 240/255, green: 152/255, blue: 141/255, alpha: 1)
+        btnCancel.setTitle("Cancel", forState: .Normal)
+        btnCancel.layer.cornerRadius = 5.0
         btnCancel.addTarget(self, action: #selector(WACreateQuestionViewController.cancel(_:)), forControlEvents: .TouchUpInside)
         view.addSubview(btnCancel)
         
         let btnCreate = UIButton(frame: CGRect(x: frame.size.width-dimension-padding, y: y, width: dimension, height: 44))
-        btnCreate.backgroundColor = UIColor.greenColor()
+        btnCreate.backgroundColor = UIColor(red: 148/255, green: 158/255, blue: 194/255, alpha: 1)
+        btnCreate.setTitle("Add", forState: .Normal)
+        btnCreate.layer.cornerRadius = 5.0
         view.addSubview(btnCreate)
         
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(WACreateQuestionViewController.dismissKeyboard(_:)))
@@ -70,6 +76,8 @@ class WACreateQuestionViewController: WAViewController, UITextFieldDelegate {
         super.viewDidLoad()
 
     }
+    
+    //MARK: My Functions
     
     func dismissKeyboard(sender: UITapGestureRecognizer?){
         for textField in self.textFields {
@@ -84,6 +92,16 @@ class WACreateQuestionViewController: WAViewController, UITextFieldDelegate {
     func cancel(btn: UIButton){
         self.dismissViewControllerAnimated(true, completion: nil)
         
+    }
+    
+    func takePicture(sender: UIButton){
+        print("takePicture")
+        
+        let actionSheet = UIActionSheet(title: "Select Source", delegate: self, cancelButtonTitle: "Cancel", destructiveButtonTitle: nil, otherButtonTitles: "Camera", "Photo Library")
+        
+        actionSheet.frame = CGRectMake(0, 150, self.view.frame.size.width, 100)
+        actionSheet.actionSheetStyle = .BlackOpaque
+        actionSheet.showInView(UIApplication.sharedApplication().keyWindow!)
     }
 
     //MARK: UITextFieldDelegate
@@ -116,6 +134,51 @@ class WACreateQuestionViewController: WAViewController, UITextFieldDelegate {
         shiftView(-150)
         
         return true
+    }
+    
+    //MARK: ImagePickerDelegate
+    
+
+    func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
+        
+        if let selectedImage = info[UIImagePickerControllerOriginalImage] as? UIImage {
+            print("didFinishPickingMediaWithInfo: \(selectedImage)")
+            
+            self.questionImage.image = selectedImage
+            
+            picker.dismissViewControllerAnimated(true, completion: nil)
+        }
+        
+    }
+
+    func imagePickerControllerDidCancel(picker: UIImagePickerController){
+        
+        print("imagePickerControllerDidCancel")
+        picker.dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    //MARK: ActionSheet Delegate
+    
+    func actionSheet(actionSheet: UIActionSheet, clickedButtonAtIndex buttonIndex: Int) {
+        print("clickedButtonAtIndex: \(buttonIndex)")
+        
+        var soureType: UIImagePickerControllerSourceType
+        
+        if(buttonIndex == 1){
+            soureType = .Camera
+        }
+        else if (buttonIndex == 2){
+            soureType = .PhotoLibrary
+        }
+        else {
+            return
+        }
+        
+        self.imagePicker = UIImagePickerController()
+        self.imagePicker.sourceType = soureType
+        self.imagePicker.delegate = self
+        self.presentViewController(self.imagePicker, animated: true, completion: nil)
+        
     }
 
     override func didReceiveMemoryWarning() {

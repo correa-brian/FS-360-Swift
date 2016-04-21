@@ -29,7 +29,7 @@ class WAQuestionsViewController: WAViewController {
         
         let frame = UIScreen.mainScreen().bounds
         let view = UIView(frame: frame)
-        view.backgroundColor = UIColor.whiteColor()
+        view.backgroundColor = UIColor(red: 148/255, green: 158/255, blue: 194/255, alpha: 1)
         
         self.view = view
     }
