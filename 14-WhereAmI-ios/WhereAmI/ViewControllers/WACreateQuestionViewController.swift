@@ -91,17 +91,89 @@ class WACreateQuestionViewController: WAViewController, UITextFieldDelegate, UII
         }
     }
     
+    func cancel(btn: UIButton){
+        self.dismissViewControllerAnimated(true, completion: nil)
+        
+    }
+    
     func createQuestion(btn: UIButton){
+        if(self.questionImage.image == nil){
+            let alert = UIAlertController(title: "Missing Image",
+                                          message: "Your forgot to add an image",
+                                          preferredStyle: .Alert)
+            
+            alert.addAction(UIAlertAction(title: "OK", style: .Default, handler: nil))
+            self.presentViewController(alert, animated: true, completion: nil)
+            return
+        }
+        
+        // request upload string from CDN:
+        let url = "https://media-service.appspot.com/api/upload"
+        
+        Alamofire.request(.GET, url, parameters: nil).responseJSON { response in
+            if let JSON = response.result.value as? Dictionary<String, AnyObject> {
+                
+                if let upload = JSON["upload"] as? String {
+                    print("\(upload)")
+                    let data = UIImageJPEGRepresentation(self.questionImage.image!, 0.5)
+                    let pkg = ["name": "image.jpg", "data":data!]
+                    self.uploadImage(upload, postData: pkg)
+                }
+            }
+        }
+        
+    }
+    
+    func uploadImage(requestURL: String, postData:[String:AnyObject]){
+        
+        let name = postData["name"] as! String
+        let imgData = postData["data"] as? NSData
+        
+        Alamofire.upload(.POST, requestURL,
+                         multipartFormData: { multipartFormData in
+                            multipartFormData.appendBodyPart(data: imgData!, name: "file", fileName: name, mimeType: "image/jpeg")
+            },
+                         encodingCompletion: { encodingResult in
+                            print("Completion: \(encodingResult)")
+                            switch encodingResult {
+                            case .Success(let upload, _, _):
+                                upload.responseJSON { response in
+                                    print("UPLOAD RESPONSE: \(response)")
+                                    if let JSON = response.result.value as? Dictionary<String, AnyObject>{
+                                        print("UPLOAD DONE: \(JSON)")
+                                        if let imageInfo = JSON["image"] as? Dictionary<String, AnyObject> {
+                                            print("\(imageInfo)")
+                                            
+                                            if let imageId = imageInfo["id"] as? String{
+                                                self.submitQuestion(imageId)
+                                                
+                                            }
+                                        }
+                                        
+                                    }
+                                }
+                                
+                            case .Failure(let encodingError):
+                                print("UPLOAD FAIL \(encodingError): ")
+                            }
+            }
+        )
+        
+    }
+    
+    func submitQuestion(imageKey: String){
+        
         print("createQuestion: ")
         
         var params = Dictionary<String, AnyObject>()
+        params["image"] = imageKey
         var options = Array<String>()
         
         var valid = true
         for i in 0..<self.textFields.count {
             let textField = self.textFields[i]
             let option = textField.text!
-//            print("\(option)")
+            //            print("\(option)")
             
             if(option.characters.count == 0){ //empty field do not continue
                 valid = false
@@ -131,11 +203,6 @@ class WACreateQuestionViewController: WAViewController, UITextFieldDelegate, UII
                 print("\(JSON)")
             }
         }
-        
-    }
-    
-    func cancel(btn: UIButton){
-        self.dismissViewControllerAnimated(true, completion: nil)
         
     }
     
@@ -186,7 +253,7 @@ class WACreateQuestionViewController: WAViewController, UITextFieldDelegate, UII
 
     func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
         
-        if let selectedImage = info[UIImagePickerControllerOriginalImage] as? UIImage {
+        if let selectedImage = info[UIImagePickerControllerEditedImage] as? UIImage {
             print("didFinishPickingMediaWithInfo: \(selectedImage)")
             
             self.questionImage.image = selectedImage
@@ -221,6 +288,7 @@ class WACreateQuestionViewController: WAViewController, UITextFieldDelegate, UII
         
         self.imagePicker = UIImagePickerController()
         self.imagePicker.sourceType = soureType
+        self.imagePicker.allowsEditing = true
         self.imagePicker.delegate = self
         self.presentViewController(self.imagePicker, animated: true, completion: nil)
         
