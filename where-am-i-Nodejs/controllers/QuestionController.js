@@ -31,7 +31,17 @@ module.exports = {
 	},
 
 	post: function(params, completion){
-		Question.create(id, function(err, question){
+		console.log('Create Question: ' +JSON.stringify(params));
+		var options = params['options[]']
+		
+		if (options != null){
+			// console.log('TEST 1')
+			params['options'] = params['options[]']
+		}
+
+		// params['options'] = options
+
+		Question.create(params, function(err, question){
 			if(err){
 				completion(err, null);
 				return;
