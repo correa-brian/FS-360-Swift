@@ -18,11 +18,11 @@ class MTHomeViewController: MovieTriviaViewController {
     var moviesArray = Array<Movie>()
     var questionsAsked = Array<Int>()
     var matchesCount = 0
-    var movieRepeat = 0
     var duplicates = 0
     var score = 0
     
     //UI Elements
+    var backgroundImage: UIImageView!
     var scoreLabel: UILabel!
     var titleLabel: UILabel!
     var movieSummary: UILabel!
@@ -39,6 +39,11 @@ class MTHomeViewController: MovieTriviaViewController {
         let view = UIView(frame: frame)
         view.backgroundColor = UIColor(red: 85/255, green: 112/255, blue:178/255, alpha: 1)
         
+        self.backgroundImage = UIImageView(frame: CGRect(x: 0, y: 0, width: frame.size.width, height: frame.size.height))
+        self.backgroundImage.image = UIImage(named: "hollywoodBackground.png")
+        self.backgroundImage.alpha = 0.1
+        
+        view.addSubview(self.backgroundImage)
         
         let w = frame.size.width
         let originX = frame.size.width * 0.5
@@ -62,12 +67,6 @@ class MTHomeViewController: MovieTriviaViewController {
         self.movieSummary.layer.masksToBounds = true
         
         view.addSubview(self.movieSummary)
-        
-//        let backgroundView = UIImageView(frame: CGRect(x: originX-100, y: 0, width: 200, height: 200))
-//        backgroundView.image = UIImage(named: "hollywoodBackground")
-//        backgroundView.alpha = 0.2
-        
-//        view.addSubview(backgroundView)
         
         self.btn1 = UIButton(type: .Custom)
         self.btn1.autoresizingMask = .FlexibleTopMargin
@@ -234,29 +233,24 @@ class MTHomeViewController: MovieTriviaViewController {
         }
             
         else {
-            self.questionsAsked.append(self.summary.movieId)
-            print("Questions Array: \(questionsAsked)")
             
             for question in questionsAsked{
-                for questionOff in questionsAsked{
-//                let index = self.questionsAsked.indexOf(question)!
-                
-                if(question == questionOff){
+                if(self.summary.movieId == question){
+                    self.generateFields()
+                }
+                else {
                     
-                    self.movieRepeat = self.movieRepeat+1
-                    
-                    }
-//                    print("This question has already been asked")
-//                    self.generateFields()
+                    self.questionsAsked.append(self.summary.movieId)
                 }
             }
-            print("Number of repeats \(self.movieRepeat)")
+            
+            print("Questions Array: \(questionsAsked)")
             
         }
         
-            if(self.questionsAsked.count == 20){
-                self.movieSummary.text = "You've Answered All the Questions!"
-            }
+        if(self.questionsAsked.count == 20){
+            self.movieSummary.text = "You've Answered All the Questions!"
+        }
     }
     
     func selectedAnswer(sender: UIButton) {
