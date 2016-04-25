@@ -47,7 +47,7 @@ module.exports = {
 				return;
 			}
 
-			completion(null, profile);
+			completion(null, question);
 			return;
 		});
 	}
