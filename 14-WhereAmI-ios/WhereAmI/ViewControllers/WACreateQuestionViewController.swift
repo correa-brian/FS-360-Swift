@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Alamofire
 
 class WACreateQuestionViewController: WAViewController, UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIActionSheetDelegate {
     
@@ -64,6 +65,7 @@ class WACreateQuestionViewController: WAViewController, UITextFieldDelegate, UII
         btnCreate.backgroundColor = UIColor(red: 148/255, green: 158/255, blue: 194/255, alpha: 1)
         btnCreate.setTitle("Add", forState: .Normal)
         btnCreate.layer.cornerRadius = 5.0
+        btnCreate.addTarget(self, action: #selector(WACreateQuestionViewController.createQuestion(_:)), forControlEvents: .TouchUpInside)
         view.addSubview(btnCreate)
         
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(WACreateQuestionViewController.dismissKeyboard(_:)))
@@ -87,6 +89,49 @@ class WACreateQuestionViewController: WAViewController, UITextFieldDelegate, UII
                 break
             }
         }
+    }
+    
+    func createQuestion(btn: UIButton){
+        print("createQuestion: ")
+        
+        var params = Dictionary<String, AnyObject>()
+        var options = Array<String>()
+        
+        var valid = true
+        for i in 0..<self.textFields.count {
+            let textField = self.textFields[i]
+            let option = textField.text!
+//            print("\(option)")
+            
+            if(option.characters.count == 0){ //empty field do not continue
+                valid = false
+                break
+            }
+            
+            if (i == 0){
+                params["answer"] = option
+            }
+            else {
+                options.append(option)
+            }
+            
+        }
+        
+        if(valid == false){
+            print("Cannot Submit Question")
+        }
+        
+        params["options"] = options
+        print("Submit Question: \(params)")
+        
+        let url = "http://localhost:3000/api/question"
+        
+        Alamofire.request(.POST, url, parameters: params).responseJSON { response in
+            if let JSON = response.result.value as? Dictionary<String, AnyObject> {
+                print("\(JSON)")
+            }
+        }
+        
     }
     
     func cancel(btn: UIButton){
